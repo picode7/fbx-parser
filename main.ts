@@ -1,6 +1,6 @@
 interface FBXNode {
   name: string
-  properties: (string | number)[]
+  properties: string[]
   subnodes: FBXNode[]
 }
 
@@ -51,7 +51,7 @@ function parseFBX(text: string) {
         let propertieString = line.substring(firstCol + 1, line.length - (expectingSubnodes ? 1 : 0))
         const propertieStringList = propertieString.split(',')
 
-        let properties: (string | number)[] = []
+        let properties: string[] = []
         for (const propertieString of propertieStringList) {
           const trimmed = propertieString.trim()
           if (trimmed === '') continue
@@ -78,7 +78,7 @@ function parseFBX(text: string) {
       let propertieString = line.substring(0, line.length - (expectingSubnodes ? 1 : 0))
       const propertieStringList = propertieString.split(',')
 
-      let properties: (string | number)[] = []
+      let properties: string[] = []
       for (const propertieString of propertieStringList) {
         const trimmed = propertieString.trim()
         if (trimmed === '') continue

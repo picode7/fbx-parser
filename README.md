@@ -1,5 +1,8 @@
 # FBX Parser for JavaScript/TypeScript
 
+![npm](https://img.shields.io/npm/v/fbx-parser)
+![npm bundle size](https://img.shields.io/bundlephobia/minzip/fbx-parser)
+
 This parser will parse FBX text files and convert them into a JavaScript-Object structure.
 
 ## Installation

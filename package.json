@@ -1,17 +1,40 @@
 {
-  "name": "fbx-js-parser",
-  "version": "1.0.0",
-  "description": "Research",
-  "main": "main.js",
+  "name": "fbx-parser",
+  "version": "1.0.1",
+  "description": "This parser will parse FBX text files and convert them into a JavaScript-Object structure.",
+  "main": "lib/index.js",
+  "types": "lib/index.d.ts",
+  "files": [
+    "lib/"
+  ],
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "tsc",
+    "prepare": "npm run build"
   },
-  "author": "",
-  "license": "ISC",
+  "publishConfig": {
+    "access": "public"
+  },
+  "keywords": [
+    "FBX",
+    "picode"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/picode7/fbx-parser.git"
+  },
+  "author": "picode7",
+  "license": "MIT",
   "devDependencies": {
+    "@types/chai": "^4.2.14",
+    "@types/mocha": "^8.2.0",
     "@typescript-eslint/eslint-plugin": "^4.10.0",
     "@typescript-eslint/parser": "^4.10.0",
+    "chai": "^4.2.0",
     "eslint": "^7.15.0",
+    "mocha": "^8.2.1",
+    "nyc": "^15.1.0",
+    "ts-node": "^9.1.1",
     "typescript": "^4.1.3"
   }
 }

@@ -9,7 +9,7 @@ const enum STATE {
   expectingPropertieListContinuation,
 }
 
-function parseFBX(text: string) {
+export function parse(text: string) {
   const lines = text.split('\n')
 
   const rootNode: FBXNode = {

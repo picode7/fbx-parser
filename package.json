@@ -10,7 +10,7 @@
   "scripts": {
     "test": "mocha -r ts-node/register tests/**/*.test.ts",
     "coverage": "nyc -r lcov -e .ts -x \"*.test.ts\" npm run test",
-    "build": "tsc",
+    "build": "npm test && tsc",
     "prepare": "npm run build && npm test"
   },
   "publishConfig": {

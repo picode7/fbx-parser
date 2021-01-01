@@ -10,6 +10,9 @@ const enum STATE {
 }
 
 export function parse(text: string) {
+  if (typeof text !== 'string') return null
+  if (text === '') return null
+
   const lines = text.split('\n')
 
   const rootNode: FBXNode = {

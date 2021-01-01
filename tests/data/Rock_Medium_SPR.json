@@ -1,0 +1,743 @@
+{
+  "name": "",
+  "properties": [],
+  "subnodes": [
+    {
+      "name": "FBXHeaderExtension",
+      "properties": [],
+      "subnodes": [
+        { "name": "FBXHeaderVersion", "properties": ["1003"], "subnodes": [] },
+        { "name": "FBXVersion", "properties": ["6100"], "subnodes": [] },
+        {
+          "name": "CreationTimeStamp",
+          "properties": [],
+          "subnodes": [
+            { "name": "Version", "properties": ["1000"], "subnodes": [] },
+            { "name": "Year", "properties": ["2014"], "subnodes": [] },
+            { "name": "Month", "properties": ["03"], "subnodes": [] },
+            { "name": "Day", "properties": ["20"], "subnodes": [] },
+            { "name": "Hour", "properties": ["17"], "subnodes": [] },
+            { "name": "Minute", "properties": ["38"], "subnodes": [] },
+            { "name": "Second", "properties": ["29"], "subnodes": [] },
+            { "name": "Millisecond", "properties": ["0"], "subnodes": [] }
+          ]
+        },
+        { "name": "Creator", "properties": ["\"FBX SDK/FBX Plugins build 20070228\""], "subnodes": [] },
+        {
+          "name": "OtherFlags",
+          "properties": [],
+          "subnodes": [{ "name": "FlagPLE", "properties": ["0"], "subnodes": [] }]
+        }
+      ]
+    },
+    { "name": "CreationTime", "properties": ["\"2014-03-20 17:38:29:000\""], "subnodes": [] },
+    { "name": "Creator", "properties": ["\"Blender version 2.69 (sub 10)\""], "subnodes": [] },
+    {
+      "name": "Definitions",
+      "properties": [],
+      "subnodes": [
+        { "name": "Version", "properties": ["100"], "subnodes": [] },
+        { "name": "Count", "properties": ["3"], "subnodes": [] },
+        {
+          "name": "ObjectType",
+          "properties": ["\"Model\""],
+          "subnodes": [{ "name": "Count", "properties": ["1"], "subnodes": [] }]
+        },
+        {
+          "name": "ObjectType",
+          "properties": ["\"Geometry\""],
+          "subnodes": [{ "name": "Count", "properties": ["1"], "subnodes": [] }]
+        },
+        {
+          "name": "ObjectType",
+          "properties": ["\"Material\""],
+          "subnodes": [{ "name": "Count", "properties": ["1"], "subnodes": [] }]
+        },
+        {
+          "name": "ObjectType",
+          "properties": ["\"Pose\""],
+          "subnodes": [{ "name": "Count", "properties": ["1"], "subnodes": [] }]
+        },
+        {
+          "name": "ObjectType",
+          "properties": ["\"GlobalSettings\""],
+          "subnodes": [{ "name": "Count", "properties": ["1"], "subnodes": [] }]
+        }
+      ]
+    },
+    {
+      "name": "Objects",
+      "properties": [],
+      "subnodes": [
+        {
+          "name": "Model",
+          "properties": ["\"Model::Rock_Medium_SPR\"", "\"Mesh\""],
+          "subnodes": [
+            { "name": "Version", "properties": ["232"], "subnodes": [] },
+            {
+              "name": "Properties60",
+              "properties": [],
+              "subnodes": [
+                {
+                  "name": "Property",
+                  "properties": ["\"QuaternionInterpolate\"", "\"bool\"", "\"\"", "0"],
+                  "subnodes": []
+                },
+                {
+                  "name": "Property",
+                  "properties": ["\"Visibility\"", "\"Visibility\"", "\"A+\"", "1"],
+                  "subnodes": []
+                },
+                {
+                  "name": "Property",
+                  "properties": [
+                    "\"Lcl Translation\"",
+                    "\"Lcl Translation\"",
+                    "\"A+\"",
+                    "0.000000000000000",
+                    "0.000000000000000",
+                    "-534.047119140625000"
+                  ],
+                  "subnodes": []
+                },
+                {
+                  "name": "Property",
+                  "properties": [
+                    "\"Lcl Rotation\"",
+                    "\"Lcl Rotation\"",
+                    "\"A+\"",
+                    "0.000009334667643",
+                    "-0.000000000000000",
+                    "0.000000000000000"
+                  ],
+                  "subnodes": []
+                },
+                {
+                  "name": "Property",
+                  "properties": [
+                    "\"Lcl Scaling\"",
+                    "\"Lcl Scaling\"",
+                    "\"A+\"",
+                    "1.000000000000000",
+                    "1.000000000000000",
+                    "1.000000000000000"
+                  ],
+                  "subnodes": []
+                },
+                {
+                  "name": "Property",
+                  "properties": ["\"RotationOffset\"", "\"Vector3D\"", "\"\"", "0", "0", "0"],
+                  "subnodes": []
+                },
+                {
+                  "name": "Property",
+                  "properties": ["\"RotationPivot\"", "\"Vector3D\"", "\"\"", "0", "0", "0"],
+                  "subnodes": []
+                },
+                {
+                  "name": "Property",
+                  "properties": ["\"ScalingOffset\"", "\"Vector3D\"", "\"\"", "0", "0", "0"],
+                  "subnodes": []
+                },
+                {
+                  "name": "Property",
+                  "properties": ["\"ScalingPivot\"", "\"Vector3D\"", "\"\"", "0", "0", "0"],
+                  "subnodes": []
+                },
+                {
+                  "name": "Property",
+                  "properties": ["\"TranslationActive\"", "\"bool\"", "\"\"", "0"],
+                  "subnodes": []
+                },
+                {
+                  "name": "Property",
+                  "properties": ["\"TranslationMin\"", "\"Vector3D\"", "\"\"", "0", "0", "0"],
+                  "subnodes": []
+                },
+                {
+                  "name": "Property",
+                  "properties": ["\"TranslationMax\"", "\"Vector3D\"", "\"\"", "0", "0", "0"],
+                  "subnodes": []
+                },
+                { "name": "Property", "properties": ["\"TranslationMinX\"", "\"bool\"", "\"\"", "0"], "subnodes": [] },
+                { "name": "Property", "properties": ["\"TranslationMinY\"", "\"bool\"", "\"\"", "0"], "subnodes": [] },
+                { "name": "Property", "properties": ["\"TranslationMinZ\"", "\"bool\"", "\"\"", "0"], "subnodes": [] },
+                { "name": "Property", "properties": ["\"TranslationMaxX\"", "\"bool\"", "\"\"", "0"], "subnodes": [] },
+                { "name": "Property", "properties": ["\"TranslationMaxY\"", "\"bool\"", "\"\"", "0"], "subnodes": [] },
+                { "name": "Property", "properties": ["\"TranslationMaxZ\"", "\"bool\"", "\"\"", "0"], "subnodes": [] },
+                { "name": "Property", "properties": ["\"RotationOrder\"", "\"enum\"", "\"\"", "0"], "subnodes": [] },
+                {
+                  "name": "Property",
+                  "properties": ["\"RotationSpaceForLimitOnly\"", "\"bool\"", "\"\"", "0"],
+                  "subnodes": []
+                },
+                { "name": "Property", "properties": ["\"AxisLen\"", "\"double\"", "\"\"", "10"], "subnodes": [] },
+                {
+                  "name": "Property",
+                  "properties": ["\"PreRotation\"", "\"Vector3D\"", "\"\"", "0", "0", "0"],
+                  "subnodes": []
+                },
+                {
+                  "name": "Property",
+                  "properties": ["\"PostRotation\"", "\"Vector3D\"", "\"\"", "0", "0", "0"],
+                  "subnodes": []
+                },
+                { "name": "Property", "properties": ["\"RotationActive\"", "\"bool\"", "\"\"", "0"], "subnodes": [] },
+                {
+                  "name": "Property",
+                  "properties": ["\"RotationMin\"", "\"Vector3D\"", "\"\"", "0", "0", "0"],
+                  "subnodes": []
+                },
+                {
+                  "name": "Property",
+                  "properties": ["\"RotationMax\"", "\"Vector3D\"", "\"\"", "0", "0", "0"],
+                  "subnodes": []
+                },
+                { "name": "Property", "properties": ["\"RotationMinX\"", "\"bool\"", "\"\"", "0"], "subnodes": [] },
+                { "name": "Property", "properties": ["\"RotationMinY\"", "\"bool\"", "\"\"", "0"], "subnodes": [] },
+                { "name": "Property", "properties": ["\"RotationMinZ\"", "\"bool\"", "\"\"", "0"], "subnodes": [] },
+                { "name": "Property", "properties": ["\"RotationMaxX\"", "\"bool\"", "\"\"", "0"], "subnodes": [] },
+                { "name": "Property", "properties": ["\"RotationMaxY\"", "\"bool\"", "\"\"", "0"], "subnodes": [] },
+                { "name": "Property", "properties": ["\"RotationMaxZ\"", "\"bool\"", "\"\"", "0"], "subnodes": [] },
+                {
+                  "name": "Property",
+                  "properties": ["\"RotationStiffnessX\"", "\"double\"", "\"\"", "0"],
+                  "subnodes": []
+                },
+                {
+                  "name": "Property",
+                  "properties": ["\"RotationStiffnessY\"", "\"double\"", "\"\"", "0"],
+                  "subnodes": []
+                },
+                {
+                  "name": "Property",
+                  "properties": ["\"RotationStiffnessZ\"", "\"double\"", "\"\"", "0"],
+                  "subnodes": []
+                },
+                { "name": "Property", "properties": ["\"MinDampRangeX\"", "\"double\"", "\"\"", "0"], "subnodes": [] },
+                { "name": "Property", "properties": ["\"MinDampRangeY\"", "\"double\"", "\"\"", "0"], "subnodes": [] },
+                { "name": "Property", "properties": ["\"MinDampRangeZ\"", "\"double\"", "\"\"", "0"], "subnodes": [] },
+                { "name": "Property", "properties": ["\"MaxDampRangeX\"", "\"double\"", "\"\"", "0"], "subnodes": [] },
+                { "name": "Property", "properties": ["\"MaxDampRangeY\"", "\"double\"", "\"\"", "0"], "subnodes": [] },
+                { "name": "Property", "properties": ["\"MaxDampRangeZ\"", "\"double\"", "\"\"", "0"], "subnodes": [] },
+                {
+                  "name": "Property",
+                  "properties": ["\"MinDampStrengthX\"", "\"double\"", "\"\"", "0"],
+                  "subnodes": []
+                },
+                {
+                  "name": "Property",
+                  "properties": ["\"MinDampStrengthY\"", "\"double\"", "\"\"", "0"],
+                  "subnodes": []
+                },
+                {
+                  "name": "Property",
+                  "properties": ["\"MinDampStrengthZ\"", "\"double\"", "\"\"", "0"],
+                  "subnodes": []
+                },
+                {
+                  "name": "Property",
+                  "properties": ["\"MaxDampStrengthX\"", "\"double\"", "\"\"", "0"],
+                  "subnodes": []
+                },
+                {
+                  "name": "Property",
+                  "properties": ["\"MaxDampStrengthY\"", "\"double\"", "\"\"", "0"],
+                  "subnodes": []
+                },
+                {
+                  "name": "Property",
+                  "properties": ["\"MaxDampStrengthZ\"", "\"double\"", "\"\"", "0"],
+                  "subnodes": []
+                },
+                { "name": "Property", "properties": ["\"PreferedAngleX\"", "\"double\"", "\"\"", "0"], "subnodes": [] },
+                { "name": "Property", "properties": ["\"PreferedAngleY\"", "\"double\"", "\"\"", "0"], "subnodes": [] },
+                { "name": "Property", "properties": ["\"PreferedAngleZ\"", "\"double\"", "\"\"", "0"], "subnodes": [] },
+                { "name": "Property", "properties": ["\"InheritType\"", "\"enum\"", "\"\"", "0"], "subnodes": [] },
+                { "name": "Property", "properties": ["\"ScalingActive\"", "\"bool\"", "\"\"", "0"], "subnodes": [] },
+                {
+                  "name": "Property",
+                  "properties": ["\"ScalingMin\"", "\"Vector3D\"", "\"\"", "1", "1", "1"],
+                  "subnodes": []
+                },
+                {
+                  "name": "Property",
+                  "properties": ["\"ScalingMax\"", "\"Vector3D\"", "\"\"", "1", "1", "1"],
+                  "subnodes": []
+                },
+                { "name": "Property", "properties": ["\"ScalingMinX\"", "\"bool\"", "\"\"", "0"], "subnodes": [] },
+                { "name": "Property", "properties": ["\"ScalingMinY\"", "\"bool\"", "\"\"", "0"], "subnodes": [] },
+                { "name": "Property", "properties": ["\"ScalingMinZ\"", "\"bool\"", "\"\"", "0"], "subnodes": [] },
+                { "name": "Property", "properties": ["\"ScalingMaxX\"", "\"bool\"", "\"\"", "0"], "subnodes": [] },
+                { "name": "Property", "properties": ["\"ScalingMaxY\"", "\"bool\"", "\"\"", "0"], "subnodes": [] },
+                { "name": "Property", "properties": ["\"ScalingMaxZ\"", "\"bool\"", "\"\"", "0"], "subnodes": [] },
+                {
+                  "name": "Property",
+                  "properties": ["\"GeometricTranslation\"", "\"Vector3D\"", "\"\"", "0", "0", "0"],
+                  "subnodes": []
+                },
+                {
+                  "name": "Property",
+                  "properties": ["\"GeometricRotation\"", "\"Vector3D\"", "\"\"", "0", "0", "0"],
+                  "subnodes": []
+                },
+                {
+                  "name": "Property",
+                  "properties": ["\"GeometricScaling\"", "\"Vector3D\"", "\"\"", "1", "1", "1"],
+                  "subnodes": []
+                },
+                { "name": "Property", "properties": ["\"LookAtProperty\"", "\"object\"", "\"\""], "subnodes": [] },
+                { "name": "Property", "properties": ["\"UpVectorProperty\"", "\"object\"", "\"\""], "subnodes": [] },
+                { "name": "Property", "properties": ["\"Show\"", "\"bool\"", "\"\"", "1"], "subnodes": [] },
+                {
+                  "name": "Property",
+                  "properties": ["\"NegativePercentShapeSupport\"", "\"bool\"", "\"\"", "1"],
+                  "subnodes": []
+                },
+                {
+                  "name": "Property",
+                  "properties": ["\"DefaultAttributeIndex\"", "\"int\"", "\"\"", "0"],
+                  "subnodes": []
+                },
+                {
+                  "name": "Property",
+                  "properties": ["\"Color\"", "\"Color\"", "\"A\"", "0.8", "0.8", "0.8"],
+                  "subnodes": []
+                },
+                { "name": "Property", "properties": ["\"Size\"", "\"double\"", "\"\"", "100"], "subnodes": [] },
+                { "name": "Property", "properties": ["\"Look\"", "\"enum\"", "\"\"", "1"], "subnodes": [] }
+              ]
+            },
+            { "name": "MultiLayer", "properties": ["0"], "subnodes": [] },
+            { "name": "MultiTake", "properties": ["1"], "subnodes": [] },
+            { "name": "Shading", "properties": ["Y"], "subnodes": [] },
+            { "name": "Culling", "properties": ["\"CullingOff\""], "subnodes": [] },
+            {
+              "name": "Vertices",
+              "properties": [
+                "0.000000",
+                "0.104800",
+                "39.291698",
+                "0.000000",
+                "0.043400",
+                "-44.424301",
+                "0.000000",
+                "38.654301",
+                "-41.818802",
+                "-0.000000",
+                "39.455002",
+                "44.424400"
+              ],
+              "subnodes": []
+            },
+            { "name": "PolygonVertexIndex", "properties": ["0", "1", "2", "-4"], "subnodes": [] },
+            { "name": "GeometryVersion", "properties": ["124"], "subnodes": [] },
+            {
+              "name": "LayerElementNormal",
+              "properties": ["0"],
+              "subnodes": [
+                { "name": "Version", "properties": ["101"], "subnodes": [] },
+                { "name": "Name", "properties": ["\"\""], "subnodes": [] },
+                { "name": "MappingInformationType", "properties": ["\"ByPolygonVertex\""], "subnodes": [] },
+                { "name": "ReferenceInformationType", "properties": ["\"Direct\""], "subnodes": [] },
+                {
+                  "name": "Normals",
+                  "properties": [
+                    "1.000000",
+                    "0.000000",
+                    "0.000000",
+                    "1.000000",
+                    "0.000000",
+                    "0.000000",
+                    "1.000000",
+                    "0.000000",
+                    "0.000000",
+                    "1.000000",
+                    "0.000000",
+                    "0.000000"
+                  ],
+                  "subnodes": []
+                }
+              ]
+            },
+            {
+              "name": "LayerElementSmoothing",
+              "properties": ["0"],
+              "subnodes": [
+                { "name": "Version", "properties": ["102"], "subnodes": [] },
+                { "name": "Name", "properties": ["\"\""], "subnodes": [] },
+                { "name": "MappingInformationType", "properties": ["\"ByPolygon\""], "subnodes": [] },
+                { "name": "ReferenceInformationType", "properties": ["\"Direct\""], "subnodes": [] },
+                { "name": "Smoothing", "properties": ["1"], "subnodes": [] }
+              ]
+            },
+            {
+              "name": "LayerElementUV",
+              "properties": ["0"],
+              "subnodes": [
+                { "name": "Version", "properties": ["101"], "subnodes": [] },
+                { "name": "Name", "properties": ["\"UVMap\""], "subnodes": [] },
+                { "name": "MappingInformationType", "properties": ["\"ByPolygonVertex\""], "subnodes": [] },
+                { "name": "ReferenceInformationType", "properties": ["\"IndexToDirect\""], "subnodes": [] },
+                {
+                  "name": "UV",
+                  "properties": [
+                    "0.493900",
+                    "0.746800",
+                    "0.630800",
+                    "0.745600",
+                    "0.502100",
+                    "0.684400",
+                    "0.634900",
+                    "0.684300"
+                  ],
+                  "subnodes": []
+                },
+                { "name": "UVIndex", "properties": ["2", "3", "1", "0"], "subnodes": [] }
+              ]
+            },
+            {
+              "name": "LayerElementTexture",
+              "properties": ["0"],
+              "subnodes": [
+                { "name": "Version", "properties": ["101"], "subnodes": [] },
+                { "name": "Name", "properties": ["\"\""], "subnodes": [] },
+                { "name": "MappingInformationType", "properties": ["\"NoMappingInformation\""], "subnodes": [] },
+                { "name": "ReferenceInformationType", "properties": ["\"IndexToDirect\""], "subnodes": [] },
+                { "name": "BlendMode", "properties": ["\"Translucent\""], "subnodes": [] },
+                { "name": "TextureAlpha", "properties": ["1"], "subnodes": [] },
+                { "name": "TextureId", "properties": ["}"], "subnodes": [] },
+                {
+                  "name": "LayerElementMaterial",
+                  "properties": ["0"],
+                  "subnodes": [
+                    { "name": "Version", "properties": ["101"], "subnodes": [] },
+                    { "name": "Name", "properties": ["\"\""], "subnodes": [] },
+                    { "name": "MappingInformationType", "properties": ["\"AllSame\""], "subnodes": [] },
+                    { "name": "ReferenceInformationType", "properties": ["\"IndexToDirect\""], "subnodes": [] },
+                    { "name": "Materials", "properties": ["0"], "subnodes": [] }
+                  ]
+                },
+                {
+                  "name": "Layer",
+                  "properties": ["0"],
+                  "subnodes": [
+                    { "name": "Version", "properties": ["100"], "subnodes": [] },
+                    {
+                      "name": "LayerElement",
+                      "properties": [],
+                      "subnodes": [
+                        { "name": "Type", "properties": ["\"LayerElementNormal\""], "subnodes": [] },
+                        { "name": "TypedIndex", "properties": ["0"], "subnodes": [] }
+                      ]
+                    },
+                    {
+                      "name": "LayerElement",
+                      "properties": [],
+                      "subnodes": [
+                        { "name": "Type", "properties": ["\"LayerElementSmoothing\""], "subnodes": [] },
+                        { "name": "TypedIndex", "properties": ["0"], "subnodes": [] }
+                      ]
+                    },
+                    {
+                      "name": "LayerElement",
+                      "properties": [],
+                      "subnodes": [
+                        { "name": "Type", "properties": ["\"LayerElementUV\""], "subnodes": [] },
+                        { "name": "TypedIndex", "properties": ["0"], "subnodes": [] }
+                      ]
+                    },
+                    {
+                      "name": "LayerElement",
+                      "properties": [],
+                      "subnodes": [
+                        { "name": "Type", "properties": ["\"LayerElementTexture\""], "subnodes": [] },
+                        { "name": "TypedIndex", "properties": ["0"], "subnodes": [] }
+                      ]
+                    },
+                    {
+                      "name": "LayerElement",
+                      "properties": [],
+                      "subnodes": [
+                        { "name": "Type", "properties": ["\"LayerElementMaterial\""], "subnodes": [] },
+                        { "name": "TypedIndex", "properties": ["0"], "subnodes": [] }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "Material",
+              "properties": ["\"Material::CactusPack_Sprite\"", "\"\""],
+              "subnodes": [
+                { "name": "Version", "properties": ["102"], "subnodes": [] },
+                { "name": "ShadingModel", "properties": ["\"lambert\""], "subnodes": [] },
+                { "name": "MultiLayer", "properties": ["0"], "subnodes": [] },
+                {
+                  "name": "Properties60",
+                  "properties": [],
+                  "subnodes": [
+                    {
+                      "name": "Property",
+                      "properties": ["\"ShadingModel\"", "\"KString\"", "\"\"", "\"Lambert\""],
+                      "subnodes": []
+                    },
+                    { "name": "Property", "properties": ["\"MultiLayer\"", "\"bool\"", "\"\"", "0"], "subnodes": [] },
+                    {
+                      "name": "Property",
+                      "properties": ["\"EmissiveColor\"", "\"ColorRGB\"", "\"\"", "0.8000", "0.8000", "0.8000"],
+                      "subnodes": []
+                    },
+                    {
+                      "name": "Property",
+                      "properties": ["\"EmissiveFactor\"", "\"double\"", "\"\"", "0.0000"],
+                      "subnodes": []
+                    },
+                    {
+                      "name": "Property",
+                      "properties": ["\"AmbientColor\"", "\"ColorRGB\"", "\"\"", "1.0000", "1.0000", "1.0000"],
+                      "subnodes": []
+                    },
+                    {
+                      "name": "Property",
+                      "properties": ["\"AmbientFactor\"", "\"double\"", "\"\"", "1.0000"],
+                      "subnodes": []
+                    },
+                    {
+                      "name": "Property",
+                      "properties": ["\"DiffuseColor\"", "\"ColorRGB\"", "\"\"", "0.8000", "0.8000", "0.8000"],
+                      "subnodes": []
+                    },
+                    {
+                      "name": "Property",
+                      "properties": ["\"DiffuseFactor\"", "\"double\"", "\"\"", "0.8000"],
+                      "subnodes": []
+                    },
+                    {
+                      "name": "Property",
+                      "properties": ["\"Bump\"", "\"Vector3D\"", "\"\"", "0", "0", "0"],
+                      "subnodes": []
+                    },
+                    {
+                      "name": "Property",
+                      "properties": ["\"TransparentColor\"", "\"ColorRGB\"", "\"\"", "1", "1", "1"],
+                      "subnodes": []
+                    },
+                    {
+                      "name": "Property",
+                      "properties": ["\"TransparencyFactor\"", "\"double\"", "\"\"", "0.0000"],
+                      "subnodes": []
+                    },
+                    {
+                      "name": "Property",
+                      "properties": ["\"SpecularColor\"", "\"ColorRGB\"", "\"\"", "1.0000", "1.0000", "1.0000"],
+                      "subnodes": []
+                    },
+                    {
+                      "name": "Property",
+                      "properties": ["\"SpecularFactor\"", "\"double\"", "\"\"", "0.5000"],
+                      "subnodes": []
+                    },
+                    {
+                      "name": "Property",
+                      "properties": ["\"ShininessExponent\"", "\"double\"", "\"\"", "12.3"],
+                      "subnodes": []
+                    },
+                    {
+                      "name": "Property",
+                      "properties": ["\"ReflectionColor\"", "\"ColorRGB\"", "\"\"", "0", "0", "0"],
+                      "subnodes": []
+                    },
+                    {
+                      "name": "Property",
+                      "properties": ["\"ReflectionFactor\"", "\"double\"", "\"\"", "1"],
+                      "subnodes": []
+                    },
+                    {
+                      "name": "Property",
+                      "properties": ["\"Emissive\"", "\"ColorRGB\"", "\"\"", "0", "0", "0"],
+                      "subnodes": []
+                    },
+                    {
+                      "name": "Property",
+                      "properties": ["\"Ambient\"", "\"ColorRGB\"", "\"\"", "1.0", "1.0", "1.0"],
+                      "subnodes": []
+                    },
+                    {
+                      "name": "Property",
+                      "properties": ["\"Diffuse\"", "\"ColorRGB\"", "\"\"", "0.8", "0.8", "0.8"],
+                      "subnodes": []
+                    },
+                    {
+                      "name": "Property",
+                      "properties": ["\"Specular\"", "\"ColorRGB\"", "\"\"", "1.0", "1.0", "1.0"],
+                      "subnodes": []
+                    },
+                    {
+                      "name": "Property",
+                      "properties": ["\"Shininess\"", "\"double\"", "\"\"", "12.3"],
+                      "subnodes": []
+                    },
+                    { "name": "Property", "properties": ["\"Opacity\"", "\"double\"", "\"\"", "1.0"], "subnodes": [] },
+                    {
+                      "name": "Property",
+                      "properties": ["\"Reflectivity\"", "\"double\"", "\"\"", "0"],
+                      "subnodes": []
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "Pose",
+              "properties": ["\"Pose::BIND_POSES\"", "\"BindPose\""],
+              "subnodes": [
+                { "name": "Type", "properties": ["\"BindPose\""], "subnodes": [] },
+                { "name": "Version", "properties": ["100"], "subnodes": [] },
+                { "name": "Properties60", "properties": [], "subnodes": [] },
+                { "name": "NbPoseNodes", "properties": ["1"], "subnodes": [] },
+                {
+                  "name": "PoseNode",
+                  "properties": [],
+                  "subnodes": [
+                    { "name": "Node", "properties": ["\"Model::Rock_Medium_SPR\""], "subnodes": [] },
+                    {
+                      "name": "Matrix",
+                      "properties": [
+                        "0.000000075497901",
+                        "1.000000000000000",
+                        "0.000000162920685",
+                        "0.000000000000000",
+                        "-1.000000000000000",
+                        "0.000000075497901",
+                        "0.000000000000012",
+                        "0.000000000000000",
+                        "0.000000000000000",
+                        "-0.000000162920685",
+                        "1.000000000000000",
+                        "0.000000000000000",
+                        "0.000000000000000",
+                        "0.000000000000000",
+                        "-534.047119140625000",
+                        "1.000000000000000"
+                      ],
+                      "subnodes": []
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "GlobalSettings",
+              "properties": [],
+              "subnodes": [
+                { "name": "Version", "properties": ["1000"], "subnodes": [] },
+                {
+                  "name": "Properties60",
+                  "properties": [],
+                  "subnodes": [
+                    { "name": "Property", "properties": ["\"UpAxis\"", "\"int\"", "\"\"", "1"], "subnodes": [] },
+                    { "name": "Property", "properties": ["\"UpAxisSign\"", "\"int\"", "\"\"", "1"], "subnodes": [] },
+                    { "name": "Property", "properties": ["\"FrontAxis\"", "\"int\"", "\"\"", "2"], "subnodes": [] },
+                    { "name": "Property", "properties": ["\"FrontAxisSign\"", "\"int\"", "\"\"", "1"], "subnodes": [] },
+                    { "name": "Property", "properties": ["\"CoordAxis\"", "\"int\"", "\"\"", "0"], "subnodes": [] },
+                    { "name": "Property", "properties": ["\"CoordAxisSign\"", "\"int\"", "\"\"", "1"], "subnodes": [] },
+                    {
+                      "name": "Property",
+                      "properties": ["\"UnitScaleFactor\"", "\"double\"", "\"\"", "1"],
+                      "subnodes": []
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Relations",
+          "properties": [],
+          "subnodes": [
+            { "name": "Model", "properties": ["\"Model::Rock_Medium_SPR\"", "\"Mesh\""], "subnodes": [] },
+            { "name": "Model", "properties": ["\"Model::Producer Perspective\"", "\"Camera\""], "subnodes": [] },
+            { "name": "Model", "properties": ["\"Model::Producer Top\"", "\"Camera\""], "subnodes": [] },
+            { "name": "Model", "properties": ["\"Model::Producer Bottom\"", "\"Camera\""], "subnodes": [] },
+            { "name": "Model", "properties": ["\"Model::Producer Front\"", "\"Camera\""], "subnodes": [] },
+            { "name": "Model", "properties": ["\"Model::Producer Back\"", "\"Camera\""], "subnodes": [] },
+            { "name": "Model", "properties": ["\"Model::Producer Right\"", "\"Camera\""], "subnodes": [] },
+            { "name": "Model", "properties": ["\"Model::Producer Left\"", "\"Camera\""], "subnodes": [] },
+            { "name": "Model", "properties": ["\"Model::Camera Switcher\"", "\"CameraSwitcher\""], "subnodes": [] },
+            { "name": "Material", "properties": ["\"Material::CactusPack_Sprite\"", "\"\""], "subnodes": [] }
+          ]
+        },
+        {
+          "name": "Connections",
+          "properties": [],
+          "subnodes": [
+            {
+              "name": "Connect",
+              "properties": ["\"OO\"", "\"Model::Rock_Medium_SPR\"", "\"Model::Scene\""],
+              "subnodes": []
+            },
+            {
+              "name": "Connect",
+              "properties": ["\"OO\"", "\"Material::CactusPack_Sprite\"", "\"Model::Rock_Medium_SPR\""],
+              "subnodes": []
+            }
+          ]
+        },
+        {
+          "name": "Takes",
+          "properties": [],
+          "subnodes": [{ "name": "Current", "properties": ["\"\""], "subnodes": [] }]
+        },
+        {
+          "name": "Version5",
+          "properties": [],
+          "subnodes": [
+            {
+              "name": "AmbientRenderSettings",
+              "properties": [],
+              "subnodes": [
+                { "name": "Version", "properties": ["101"], "subnodes": [] },
+                { "name": "AmbientLightColor", "properties": ["0.0", "0.0", "0.0", "0"], "subnodes": [] }
+              ]
+            },
+            {
+              "name": "FogOptions",
+              "properties": [],
+              "subnodes": [
+                { "name": "FogEnable", "properties": ["0"], "subnodes": [] },
+                { "name": "FogMode", "properties": ["0"], "subnodes": [] },
+                { "name": "FogDensity", "properties": ["0.000"], "subnodes": [] },
+                { "name": "FogStart", "properties": ["5.000"], "subnodes": [] },
+                { "name": "FogEnd", "properties": ["25.000"], "subnodes": [] },
+                { "name": "FogColor", "properties": ["0.1", "0.1", "0.1", "1"], "subnodes": [] }
+              ]
+            },
+            {
+              "name": "Settings",
+              "properties": [],
+              "subnodes": [
+                { "name": "FrameRate", "properties": ["\"24\""], "subnodes": [] },
+                { "name": "TimeFormat", "properties": ["1"], "subnodes": [] },
+                { "name": "SnapOnFrames", "properties": ["0"], "subnodes": [] },
+                { "name": "ReferenceTimeIndex", "properties": ["-1"], "subnodes": [] },
+                { "name": "TimeLineStartTime", "properties": ["0"], "subnodes": [] },
+                { "name": "TimeLineStopTime", "properties": ["479181389250"], "subnodes": [] }
+              ]
+            },
+            {
+              "name": "RendererSetting",
+              "properties": [],
+              "subnodes": [
+                { "name": "DefaultCamera", "properties": ["\"Producer Perspective\""], "subnodes": [] },
+                { "name": "DefaultViewingMode", "properties": ["0"], "subnodes": [] }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

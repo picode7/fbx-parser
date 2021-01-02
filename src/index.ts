@@ -9,10 +9,11 @@ const enum STATE {
   expectingPropertieListContinuation,
 }
 
+/**
+ * Returns the root node as FBXNode or null in case of an error
+ * @param text the FBX text file content
+ */
 export function parse(text: string) {
-  if (typeof text !== 'string') return null
-  if (text === '') return null
-
   const lines = text.split('\n')
 
   const rootNode: FBXNode = {
@@ -101,3 +102,5 @@ export function parse(text: string) {
 
   return rootNode
 }
+
+console.log(parse(''))

@@ -19,6 +19,6 @@ describe('Parsing', function () {
 
   it('Empty file', function () {
     const result = FBX.parse('')
-    expect(result).equal(null)
+    expect(result).deep.equal({ name: '', properties: [], subnodes: [] })
   })
 })

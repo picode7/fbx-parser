@@ -1,8 +1,8 @@
 # FBX Parser for JavaScript/TypeScript
 
-![GitHub Workflow Status](https://img.shields.io/github/workflow/status/picode7/fbx-parser/CI)
 ![npm](https://img.shields.io/npm/v/fbx-parser)
 ![npm bundle size](https://img.shields.io/bundlephobia/minzip/fbx-parser)
+![GitHub Workflow Status](https://img.shields.io/github/workflow/status/picode7/fbx-parser/CI)
 
 This parser will parse FBX text files and convert them into a JavaScript-Object structure.
 

@@ -14,9 +14,9 @@ const MAGIC = new Uint8Array([75, 97, 121, 100, 97, 114, 97, 32, 70, 66, 88, 32,
 
 function parseBinary(binary: Uint8Array) {
   const magic = binary.subarray(0, 20).every((v, i) => v === MAGIC[i])
-  const fbxVersion = byteArrayToLong(binary.subarray(23, 26))
+  const fbxVersion = new DataView(binary.buffer, 23, 4).getUint32(0, true)
 
-  console.log('File:' /*magic, fbxVersion*/)
+  console.log('File:', fbxVersion)
 
   let offset = 27
   offset = parseNode(binary, offset)
@@ -35,9 +35,12 @@ function parseBinary(binary: Uint8Array) {
 }
 
 function parseNode(binary: Uint8Array, offset: number) {
-  const endOffset = byteArrayToLong(binary.subarray(offset, (offset += 4)))
-  const numProperties = byteArrayToLong(binary.subarray(offset, (offset += 4)))
-  const propertyListLen = byteArrayToLong(binary.subarray(offset, (offset += 4)))
+  const endOffset = new DataView(binary.buffer, offset, 4).getUint32(0, true)
+  offset += 4
+  const numProperties = new DataView(binary.buffer, offset, 4).getUint32(0, true)
+  offset += 4
+  const propertyListLen = new DataView(binary.buffer, offset, 4).getUint32(0, true)
+  offset += 4
   const nameLen = binary[offset++].valueOf()
 
   const name = String.fromCharCode.apply(null, binary.subarray(offset, (offset += nameLen)) as any)
@@ -69,7 +72,8 @@ function parseProperty(binary: Uint8Array, offset: number) {
     // TODO: check..
   } else if (typeCode === 'I') {
     // 4 byte signed Integer
-    value = byteArrayToLong(binary.subarray(offset, (offset += 4)))
+    value = new DataView(binary.buffer, offset, 4).getUint32(0, true)
+    offset += 4
     // TODO: check..
   } else if (typeCode === 'D') {
     // 8 byte double-precision IEEE 754 number
@@ -84,9 +88,12 @@ function parseProperty(binary: Uint8Array, offset: number) {
 
   // Array Types
   else if (typeCode === 'f' || typeCode === 'd' || typeCode === 'l' || typeCode === 'i' || typeCode === 'b') {
-    const arrayLength = byteArrayToLong(binary.subarray(offset, (offset += 4)))
-    const encoding = byteArrayToLong(binary.subarray(offset, (offset += 4)))
-    const compressedLength = byteArrayToLong(binary.subarray(offset, (offset += 4)))
+    const arrayLength = new DataView(binary.buffer, offset, 4).getUint32(0, true)
+    offset += 4
+    const encoding = new DataView(binary.buffer, offset, 4).getUint32(0, true)
+    offset += 4
+    const compressedLength = new DataView(binary.buffer, offset, 4).getUint32(0, true)
+    offset += 4
 
     if (encoding == 0) {
       if (typeCode === 'f') {
@@ -136,11 +143,14 @@ function parseProperty(binary: Uint8Array, offset: number) {
   // Special types
   else if (typeCode === 'S') {
     // String
-    const length = byteArrayToLong(binary.subarray(offset, (offset += 4)))
+
+    const length = new DataView(binary.buffer, offset, 4).getUint32(0, true)
+    offset += 4
     value = String.fromCharCode.apply(null, binary.subarray(offset, (offset += length)) as any)
   } else if (typeCode === 'R') {
     // Raw binary data
-    const length = byteArrayToLong(binary.subarray(offset, (offset += 4)))
+    const length = new DataView(binary.buffer, offset, 4).getUint32(0, true)
+    offset += 4
     value = binary.subarray(offset, (offset += length))
   }
 
@@ -159,12 +169,4 @@ async function init() {
   parseBinary(await fs.readFileSync('../tests/data/binary.fbx'))
 }
 
-let byteArrayToLong = function (byteArray: Uint8Array) {
-  var value = 0
-  for (var i = byteArray.length - 1; i >= 0; i--) {
-    value = value * 256 + byteArray[i]
-  }
-
-  return value
-}
 init()

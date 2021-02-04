@@ -12,9 +12,20 @@ describe('Parsing', function () {
   before(async () => {
     outputFile = await fs.readFileSync('./tests/data/Rock_Medium_SPR.json', 'utf8')
   })
+
+  let inputFileBinary: string
+  before(async () => {
+    inputFileBinary = await fs.readFileSync('./tests/data/binary.fbx', 'utf8')
+  })
+
   it('Test file', function () {
     const result = FBX.parse(inputFile)
     expect(result).deep.equal(JSON.parse(outputFile))
+  })
+
+  it('Binary test file', function () {
+    const result = FBX.parse(inputFileBinary)
+    expect(result).equal(null)
   })
 
   it('Empty file', function () {

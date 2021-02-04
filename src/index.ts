@@ -14,6 +14,9 @@ const enum STATE {
  * @param text the FBX text file content
  */
 export function parse(text: string) {
+  // Detect binary FBX-file
+  if (text.substr(0, 21) === 'Kaydara FBX Binary  \x00') return null
+
   const lines = text.split('\n')
 
   const rootNode: FBXNode = {

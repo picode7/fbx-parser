@@ -60,6 +60,7 @@ Please make sure to update tests as appropriate.
 - <https://code.blender.org/2013/08/fbx-binary-file-format-specification/>
 - <https://banexdevblog.wordpress.com/2014/06/23/a-quick-tutorial-about-the-fbx-ascii-format/>
 - <https://archive.blender.org/wiki/index.php/User:Mont29/Foundation/FBX_File_Structure/#Animation>
+- <https://code.blender.org/2013/08/fbx-binary-file-format-specification/>
 
 ### Resources
 

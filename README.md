@@ -30,6 +30,19 @@ interface FBXNode {
 }
 ```
 
+```ts
+// Get Settings
+const globalSettings = fbx.subnodes.find((v) => v.name === 'GlobalSettings')
+const properties70 = globalSettings.subnodes.find((v) => v.name === 'Properties70')
+const upAxis = properties70.subnodes.find((v) => v.name === 'P' && v.properties[0] === '"UpAxis"').properties[4]
+
+const connections = fbx.subnodes.find((v) => v.name === 'Connections')
+const connectionsOnRoot = connections.subnodes.filter((v) => v.properties[2] === '0')
+for (const connection of connectionsOnRoot) {
+  const objectId = connection.properties[1]
+}
+```
+
 ## Contributing
 
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
@@ -51,3 +64,7 @@ Please make sure to update tests as appropriate.
 ### Resources
 
 - FBX example file <https://www.ics.uci.edu/~djp3/classes/2014_03_ICS163/tasks/arMarker/Unity/arMarker/Assets/CactusPack/Meshes/Sprites/Rock_Medium_SPR.fbx>
+
+```
+
+```

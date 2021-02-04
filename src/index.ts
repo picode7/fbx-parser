@@ -102,5 +102,3 @@ export function parse(text: string) {
 
   return rootNode
 }
-
-console.log(parse(''))

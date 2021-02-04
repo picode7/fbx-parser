@@ -64,7 +64,3 @@ Please make sure to update tests as appropriate.
 ### Resources
 
 - FBX example file <https://www.ics.uci.edu/~djp3/classes/2014_03_ICS163/tasks/arMarker/Unity/arMarker/Assets/CactusPack/Meshes/Sprites/Rock_Medium_SPR.fbx>
-
-```
-
-```

@@ -6,7 +6,7 @@ interface FBXNode {
 
 const enum STATE {
   expectingNodeOrClose,
-  expectingPropertieListContinuation,
+  expectingPropertyListContinuation,
 }
 
 /**
@@ -34,7 +34,7 @@ export function parse(text: string) {
     // Comment Line
     if (line[0] === ';') continue
 
-    // Depending on State (expecting sub-node or node close, expecting propertie list continuation-if line ends with a comma)
+    // Depending on State (expecting sub-node or node close, expecting property list continuation-if line ends with a comma)
     if (state === STATE.expectingNodeOrClose) {
       // Node Close
       if (line[0] === '}') {
@@ -52,16 +52,16 @@ export function parse(text: string) {
         // check end of line
         const expectingSubnodes = line[line.length - 1] === '{'
 
-        let propertieString = line.substring(firstCol + 1, line.length - (expectingSubnodes ? 1 : 0))
-        const propertieStringList = propertieString.split(',')
+        let propertyString = line.substring(firstCol + 1, line.length - (expectingSubnodes ? 1 : 0))
+        const propertyStringList = propertyString.split(',')
 
         let properties: string[] = []
-        for (const propertieString of propertieStringList) {
-          const trimmed = propertieString.trim()
+        for (const propertyString of propertyStringList) {
+          const trimmed = propertyString.trim()
           if (trimmed === '') continue
           properties.push(trimmed)
         }
-        if (propertieStringList[propertieStringList.length - 1] === '') state = STATE.expectingPropertieListContinuation
+        if (propertyStringList[propertyStringList.length - 1] === '') state = STATE.expectingPropertyListContinuation
 
         const newNode: FBXNode = {
           name: nodeName,
@@ -70,28 +70,28 @@ export function parse(text: string) {
         }
         currentNode.subnodes.push(newNode)
 
-        if (expectingSubnodes || state === STATE.expectingPropertieListContinuation) {
+        if (expectingSubnodes || state === STATE.expectingPropertyListContinuation) {
           path.push(newNode)
           currentNode = newNode
         }
       }
-    } else if (state === STATE.expectingPropertieListContinuation) {
+    } else if (state === STATE.expectingPropertyListContinuation) {
       // check end of line
       const expectingSubnodes = line[line.length - 1] === '{'
 
-      let propertieString = line.substring(0, line.length - (expectingSubnodes ? 1 : 0))
-      const propertieStringList = propertieString.split(',')
+      let propertyString = line.substring(0, line.length - (expectingSubnodes ? 1 : 0))
+      const propertyStringList = propertyString.split(',')
 
       let properties: string[] = []
-      for (const propertieString of propertieStringList) {
-        const trimmed = propertieString.trim()
+      for (const propertyString of propertyStringList) {
+        const trimmed = propertyString.trim()
         if (trimmed === '') continue
         properties.push(trimmed)
       }
 
       currentNode.properties = currentNode.properties.concat(properties)
 
-      if (propertieStringList[propertieStringList.length - 1] !== '') state = STATE.expectingNodeOrClose
+      if (propertyStringList[propertyStringList.length - 1] !== '') state = STATE.expectingNodeOrClose
 
       if (!expectingSubnodes && state === STATE.expectingNodeOrClose) {
         path.pop()

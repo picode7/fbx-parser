@@ -92,17 +92,40 @@ function readPropertyArray(data: Data, decoder: (data: Data) => any) {
   return value
 }
 
-/** 'Kaydara FBX Binary\x20\x20\x00' */
-const MAGIC = new Uint8Array([75, 97, 121, 100, 97, 114, 97, 32, 70, 66, 88, 32, 66, 105, 110, 97, 114, 121, 32, 32, 0])
+/** 'Kaydara FBX Binary\x20\x20\x00\x1a\x00' */
+const MAGIC = new Uint8Array([
+  75,
+  97,
+  121,
+  100,
+  97,
+  114,
+  97,
+  32,
+  70,
+  66,
+  88,
+  32,
+  66,
+  105,
+  110,
+  97,
+  114,
+  121,
+  32,
+  32,
+  0,
+  26,
+  0,
+])
 
 function parse(binary: Uint8Array) {
   const data = { binary, position: 0 }
-  const magic = binary.subarray(0, 20).every((v, i) => v === MAGIC[i])
-  const fbxVersion = new DataView(binary.buffer, 23, 4).getUint32(0, true)
+  const magic = readByteArray(data, MAGIC.length).every((v, i) => v === MAGIC[i])
+  if (!magic) throw new Error('Not a binary FBX file')
 
+  const fbxVersion = readUInt32(data)
   log += `${debugIndent}File: ${fbxVersion}\n`
-
-  data.position = 27
   while (readNode(data) !== null) {}
 }
 

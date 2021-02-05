@@ -6,167 +6,173 @@ import * as fs from 'fs'
  */
 // based on https://code.blender.org/2013/08/fbx-binary-file-format-specification/
 
+// TODO: check https://github.com/ideasman42/pyfbx_i42
+
+// cube from https://github.com/o5h/fbx/tree/master/testdata/FBX%202013
+
 let debugIndent = ''
 const DEBUG_INDENT = '    '
+let log = ''
 
-/** 'Kaydara FBX Binary  \x00' */
+interface Data {
+  binary: Uint8Array
+  position: number
+}
+
+function readUInt32(data: Data) {
+  const v = new DataView(data.binary.buffer, data.position, 4).getUint32(0, true)
+  data.position += 4
+  return v
+}
+
+function readInt16(data: Data) {
+  const v = new DataView(data.binary.buffer, data.position, 4).getInt16(0, true)
+  data.position += 4
+  return v
+}
+
+function readInt32(data: Data) {
+  const v = new DataView(data.binary.buffer, data.position, 4).getInt32(0, true)
+  data.position += 4
+  return v
+}
+
+function readInt64(data: Data) {
+  const v = new DataView(data.binary.buffer, data.position, 8).getBigInt64(0, true)
+  data.position += 8
+  return v
+}
+
+function readFloat32(data: Data) {
+  const v = new DataView(data.binary.buffer, data.position, 4).getFloat32(0, true)
+  data.position += 4
+  return v
+}
+function readFloat64(data: Data) {
+  const v = new DataView(data.binary.buffer, data.position, 8).getFloat64(0, true)
+  data.position += 8
+  return v
+}
+
+function readUByte(data: Data) {
+  return data.binary[data.position++].valueOf()
+}
+
+function readString(data: Data, length: number) {
+  return String.fromCharCode.apply(null, data.binary.subarray(data.position, (data.position += length)) as any)
+}
+
+function readByteArray(data: Data, length: number) {
+  return data.binary.subarray(data.position, (data.position += length))
+}
+
+function readChar(data: Data) {
+  return String.fromCharCode(data.binary[data.position++].valueOf())
+}
+
+function readBoolByte(data: Data) {
+  return data.binary[data.position++].valueOf() !== 0
+}
+
+function readPropertyArray(data: Data, decoder: (data: Data) => any) {
+  const arrayLength = readUInt32(data)
+  const encoding = readUInt32(data)
+  const compressedLength = readUInt32(data)
+
+  if (encoding === 1) {
+    data.position += compressedLength
+    return
+    // throw new Error('Compression not supported') // TODO:
+  }
+
+  const value = []
+  for (let i = 0; i < arrayLength; ++i) {
+    value.push(decoder(data))
+  }
+  return value
+}
+
+/** 'Kaydara FBX Binary\x20\x20\x00' */
 const MAGIC = new Uint8Array([75, 97, 121, 100, 97, 114, 97, 32, 70, 66, 88, 32, 66, 105, 110, 97, 114, 121, 32, 32, 0])
 
-function parseBinary(binary: Uint8Array) {
+function parse(binary: Uint8Array) {
+  const data = { binary, position: 0 }
   const magic = binary.subarray(0, 20).every((v, i) => v === MAGIC[i])
   const fbxVersion = new DataView(binary.buffer, 23, 4).getUint32(0, true)
 
-  console.log('File:', fbxVersion)
+  log += `${debugIndent}File: ${fbxVersion}\n`
 
-  let offset = 27
-  offset = parseNode(binary, offset)
-  offset = parseNode(binary, offset)
-  offset = parseNode(binary, offset)
-  offset = parseNode(binary, offset)
-  offset = parseNode(binary, offset)
-  offset = parseNode(binary, offset)
-  offset = parseNode(binary, offset)
-  offset = parseNode(binary, offset)
-  offset = parseNode(binary, offset)
-  offset = parseNode(binary, offset)
-  offset = parseNode(binary, offset)
-  // seems to end with another 13 NULL bytes
-  //   console.log(binary.subarray(offset).length, binary.subarray(offset), binary.subarray(offset).toString())
+  data.position = 27
+  while (readNode(data) !== null) {}
 }
 
-function parseNode(binary: Uint8Array, offset: number) {
-  const endOffset = new DataView(binary.buffer, offset, 4).getUint32(0, true)
-  offset += 4
-  const numProperties = new DataView(binary.buffer, offset, 4).getUint32(0, true)
-  offset += 4
-  const propertyListLen = new DataView(binary.buffer, offset, 4).getUint32(0, true)
-  offset += 4
-  const nameLen = binary[offset++].valueOf()
+function readNode(data: Data) {
+  const endOffset = readUInt32(data)
+  if (endOffset === 0) return null
+  const numProperties = readUInt32(data)
+  const propertyListLen = readUInt32(data)
+  const nameLen = readUByte(data)
+  const name = readString(data, nameLen)
 
-  const name = String.fromCharCode.apply(null, binary.subarray(offset, (offset += nameLen)) as any)
-
-  console.log(debugIndent + 'Node:', name)
+  log += `${debugIndent}Node: ${name}\n`
   debugIndent += DEBUG_INDENT
 
+  // Properties
   for (let i = 0; i < numProperties; ++i) {
-    offset = parseProperty(binary, offset)
+    readProperty(data)
   }
 
-  while (endOffset - offset > 13) {
-    // Nested List
-    offset = parseNode(binary, offset)
+  // Node List
+  while (endOffset - data.position > 13) {
+    readNode(data)
   }
 
   debugIndent = debugIndent.substr(0, debugIndent.length - DEBUG_INDENT.length)
+  data.position = endOffset
   return endOffset
 }
 
-function parseProperty(binary: Uint8Array, offset: number) {
-  const typeCode = String.fromCharCode(binary[offset++].valueOf())
+function readProperty(data: Data) {
+  const typeCode = readChar(data)
   let value: any
 
-  // Primitive Types
-  if (typeCode === 'C') {
-    // 1 bit boolean (1: true, 0: false) encoded as the LSB of a 1 Byte value.
-    value = binary[offset++].valueOf() !== 0
-    // TODO: check..
-  } else if (typeCode === 'I') {
-    // 4 byte signed Integer
-    value = new DataView(binary.buffer, offset, 4).getUint32(0, true)
-    offset += 4
-    // TODO: check..
-  } else if (typeCode === 'D') {
-    // 8 byte double-precision IEEE 754 number
-    value = new DataView(binary.buffer, offset, 8).getFloat64(0, true)
-    offset += 8
-  } else if (typeCode === 'L') {
-    // 8 byte signed Integer
-    value = new DataView(binary.buffer, offset, 8).getBigInt64(0, true)
-    offset += 8
-    // TODO: check..
+  const read: { [index: string]: () => any } = {
+    Y: () => readInt16(data),
+    C: () => readBoolByte(data),
+    I: () => readInt32(data),
+    F: () => readFloat32(data),
+    D: () => readFloat64(data),
+    L: () => readInt64(data),
+    f: () => readPropertyArray(data, readFloat32),
+    d: () => readPropertyArray(data, readFloat64),
+    l: () => readPropertyArray(data, readInt64),
+    i: () => readPropertyArray(data, readInt32),
+    b: () => readPropertyArray(data, readBoolByte),
+    S: () => readString(data, readUInt32(data)).replace('\x00\x01', '::'),
+    R: () => readByteArray(data, readUInt32(data)),
   }
 
-  // Array Types
-  else if (typeCode === 'f' || typeCode === 'd' || typeCode === 'l' || typeCode === 'i' || typeCode === 'b') {
-    const arrayLength = new DataView(binary.buffer, offset, 4).getUint32(0, true)
-    offset += 4
-    const encoding = new DataView(binary.buffer, offset, 4).getUint32(0, true)
-    offset += 4
-    const compressedLength = new DataView(binary.buffer, offset, 4).getUint32(0, true)
-    offset += 4
+  if (typeof read[typeCode] === 'undefined') throw new Error('Unknown Property Type')
 
-    if (encoding == 0) {
-      if (typeCode === 'f') {
-        // Array of 4 byte single-precision IEEE 754 number
-        value = []
-        for (let i = 0; i < arrayLength; ++i) {
-          // TODO: seems wrong
-          value.push(new DataView(binary.buffer, offset, 4).getFloat32(0, true))
-          offset += 4
-        }
-      } else if (typeCode === 'd') {
-        // Array of 8 byte double-precision IEEE 754 number
-        value = []
-        for (let i = 0; i < arrayLength; ++i) {
-          value.push(new DataView(binary.buffer, offset, 8).getFloat64(0, true))
-          offset += 8
-        }
-      } else if (typeCode === 'l') {
-        // Array of 8 byte double-precision IEEE 754 number
-        value = []
-        for (let i = 0; i < arrayLength; ++i) {
-          value.push(new DataView(binary.buffer, offset, 8).getBigInt64(0, true))
-          offset += 8
-        }
-      } else if (typeCode === 'i') {
-        // Array of 4 byte signed Integer
-        value = []
-        for (let i = 0; i < arrayLength; ++i) {
-          value.push(new DataView(binary.buffer, offset, 4).getInt32(0, true))
-          offset += 4
-        }
-      } else {
-        // TODO: implement all known
-        console.log(debugIndent + 'Property Error:', typeCode, value)
-        throw new Error()
-      }
-    } else {
-      // TODO:
-      // deflate/zip-compressed buffer of length CompressedLength bytes.
-      // The buffer can for example be decoded using zlib.
-      console.log(debugIndent + 'deflate/zip not implemented', arrayLength / 8, encoding, compressedLength)
-      offset += compressedLength
-      //   throw new Error('deflate/zip not implemented')
-    }
-  }
+  value = read[typeCode]()
 
-  // Special types
-  else if (typeCode === 'S') {
-    // String
-
-    const length = new DataView(binary.buffer, offset, 4).getUint32(0, true)
-    offset += 4
-    value = String.fromCharCode.apply(null, binary.subarray(offset, (offset += length)) as any)
-  } else if (typeCode === 'R') {
-    // Raw binary data
-    const length = new DataView(binary.buffer, offset, 4).getUint32(0, true)
-    offset += 4
-    value = binary.subarray(offset, (offset += length))
-  }
-
-  // Unknown
-  else {
-    // TODO: implement all known
-    console.log(debugIndent + 'Property Error:', typeCode, value)
-    throw new Error()
-  }
-
-  console.log(debugIndent + 'Property:', typeCode, value)
-  return offset // TODO:
+  log += `${debugIndent}Property: ${typeCode} ${JSON.stringify(value, (key, value) =>
+    typeof value === 'bigint' ? value.toString() : value
+  )}\n`
 }
 
+import * as path from 'path'
 async function init() {
-  parseBinary(await fs.readFileSync('../tests/data/binary.fbx'))
+  log = ''
+  const sourceFileName = 'tests/data/binary.fbx'
+  // const sourceFileName = 'tests/data/FBX 2006/cube.fbx'
+  parse(await fs.readFileSync(sourceFileName))
+
+  const outFileName = path.join(
+    path.dirname(sourceFileName),
+    path.basename(sourceFileName, path.extname(sourceFileName)) + '.txt'
+  )
+  fs.writeFileSync(outFileName, log)
 }
 
 init()

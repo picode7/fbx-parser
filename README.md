@@ -15,19 +15,37 @@ npm install fbx-parser
 ## Usage
 
 ```ts
-import * as FBX from 'fbx-parser'
+import * as FBXParser from 'fbx-parser'
+import * as fs from 'fs'
 
-FBX.parse(fbxTextFileString) // returns FBXNode
+// when encoding is known
+const fbx = parseText(fbxString)
+const fbx = parseBinary(fbxUint8Array)
+
+// when file encoding is unknown
+const file = 'file.fbx'
+let fbx: FBX
+try {
+  // try binary file encoding
+  fbx = parse(await fs.readFileSync(file))
+} catch (e) {
+  // try text file encoding
+  fbx = parse(await fs.readFileSync(file, 'utf-8'))
+}
 ```
 
 Calling the parser will return the same raw structure of the FBX file, starting with the root node named `''`:
 
 ```ts
+type FBX = FBXNode[]
+
 interface FBXNode {
   name: string
-  properties: string[]
-  subnodes: FBXNode[]
+  props: FBXProperty[]
+  nodes: FBXNode[]
 }
+
+type FBXProperty = boolean | number | BigInt | boolean[] | number[] | BigInt[] | string
 ```
 
 ```ts
@@ -61,7 +79,12 @@ Please make sure to update tests as appropriate.
 - <https://banexdevblog.wordpress.com/2014/06/23/a-quick-tutorial-about-the-fbx-ascii-format/>
 - <https://archive.blender.org/wiki/index.php/User:Mont29/Foundation/FBX_File_Structure/#Animation>
 - <https://code.blender.org/2013/08/fbx-binary-file-format-specification/>
+- <https://github.com/ideasman42/pyfbx_i42>
 
 ### Resources
 
-- FBX example file <https://www.ics.uci.edu/~djp3/classes/2014_03_ICS163/tasks/arMarker/Unity/arMarker/Assets/CactusPack/Meshes/Sprites/Rock_Medium_SPR.fbx>
+- FBX example file <https://www.ics.uci.edu/~djp3/classes/2014_03_ICS163/tasks/arMarker/Unity/arMarker/Assets/CactusPack/Meshes/Sprites/Rock_Medium_SPR.fbx>, <https://github.com/o5h/fbx/tree/master/testdata/FBX%202013>
+
+### Tools
+
+- FBX Converter by Autodesk <https://www.autodesk.com/developer-network/platform-technologies/fbx-converter-archives>

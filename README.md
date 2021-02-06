@@ -16,13 +16,13 @@ npm install fbx-parser
 
 ```ts
 import * as FBXParser from 'fbx-parser'
-import * as fs from 'fs'
 
 // when encoding is known
 const fbx = parseText(fbxString)
 const fbx = parseBinary(fbxUint8Array)
 
 // when file encoding is unknown
+import * as fs from 'fs'
 const file = 'file.fbx'
 let fbx: FBX
 try {

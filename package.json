@@ -1,6 +1,6 @@
 {
   "name": "fbx-parser",
-  "version": "2.0.6",
+  "version": "2.0.7",
   "description": "This parser will parse FBX text files and convert them into a JavaScript-Object structure.",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",

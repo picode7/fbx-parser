@@ -1,4 +1,4 @@
-gname: Node.js Package
+name: Node.js Package
 on:
   release:
     types: [created]

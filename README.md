@@ -34,7 +34,7 @@ try {
 }
 ```
 
-Calling the parser will return the same raw structure of the FBX file, starting with the root node named `''`:
+Calling the parser will return the same raw structure of the FBX file:
 
 ```ts
 type FBX = FBXNode[]

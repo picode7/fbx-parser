@@ -12,6 +12,9 @@ jobs:
         with:
           registry-url: 'https://npm.pkg.github.com'
           scope: '@picode7'
+
+      - run: npm install
+
       # Publish to GitHub Packages
       - run: npm publish
         env:
@@ -20,7 +23,6 @@ jobs:
       - uses: actions/setup-node@v1
         with:
           registry-url: 'https://registry.npmjs.org'
-      - run: npm install
       # Publish to npm
       - run: npm publish --access public
         env:

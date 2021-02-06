@@ -1,32 +1,29 @@
-import { FBXNode, FBXProperty } from './FBXNode'
+import { FBXNode, FBXProperty, FBX } from './shared'
 import { BinaryReader } from '@picode/binary-reader'
 import { inflate } from 'pako'
 
 const MAGIC = Uint8Array.from('Kaydara FBX Binary\x20\x20\x00\x1a\x00'.split(''), (v) => v.charCodeAt(0))
 
 /**
- * Returns the root node as FBXNode or null in case of an error
+ * Returns a list of FBXNodes
  * @param binary the FBX binary file content
  */
-export function parse(binary: Uint8Array) {
+export function parseBinary(binary: Uint8Array): FBX {
+  if (binary.length < MAGIC.length) throw 'Not a binary FBX file'
   const data = new BinaryReader(binary)
   const magic = data.readUint8Array(MAGIC.length).every((v, i) => v === MAGIC[i])
-  if (!magic) throw new Error('Not a binary FBX file')
+  if (!magic) throw 'Not a binary FBX file'
   const fbxVersion = data.readUint32()
 
-  const rootNode: FBXNode = {
-    name: '',
-    props: [],
-    nodes: [],
-  }
+  const fbx: FBX = []
 
   while (true) {
     const subnode = readNode(data)
     if (subnode === null) break
-    rootNode.nodes.push(subnode)
+    fbx.push(subnode)
   }
 
-  return rootNode
+  return fbx
 }
 
 function readNode(data: BinaryReader) {
@@ -73,13 +70,33 @@ function readProperty(data: BinaryReader) {
     l: () => readPropertyArray(data, (r) => r.readInt64()),
     i: () => readPropertyArray(data, (r) => r.readInt32()),
     b: () => readPropertyArray(data, (r) => r.readUint8AsBool()),
-    S: () => data.readArrayAsString(data.readUint32()).replace('\x00\x01', '::'),
-    R: () => data.readUint8Array(data.readUint32()),
+    S: () => data.readArrayAsString(data.readUint32()),
+    R: () => Array.from(data.readUint8Array(data.readUint32())),
   }
 
-  if (typeof read[typeCode] === 'undefined') throw new Error(`Unknown Property Type ${typeCode.charCodeAt(0)}`)
+  if (typeof read[typeCode] === 'undefined') throw `Unknown Property Type ${typeCode.charCodeAt(0)}`
 
-  return read[typeCode]()
+  let value = read[typeCode]()
+
+  // convert BigInt when ever possible
+  const convertBigInt = (v: number) => {
+    if (value < Number.MIN_SAFE_INTEGER || v > Number.MAX_SAFE_INTEGER) return v
+    return Number(v)
+  }
+  if (typeCode === 'L') {
+    value = convertBigInt(value)
+  } else if (typeCode === 'l') {
+    for (let i = 0; i < value.length; ++i) {
+      value[i] = convertBigInt(value[i])
+    }
+  }
+
+  // replace '\x00\x01' by '::' and flip like in the text files
+  if (typeCode === 'S' && value.indexOf('\x00\x01') != -1) {
+    value = (value as string).split('\x00\x01').reverse().join('::')
+  }
+
+  return value
 }
 
 function readPropertyArray(data: BinaryReader, reader: (r: BinaryReader) => FBXProperty) {
@@ -99,35 +116,3 @@ function readPropertyArray(data: BinaryReader, reader: (r: BinaryReader) => FBXP
 
   return value
 }
-
-// Test
-
-import * as path from 'path'
-import * as fs from 'fs'
-
-async function init() {
-  // const sourceFileName = 'tests/data/binary.fbx'
-  const sourceFileName = 'tests/data/binary.fbx'
-  let json = parse(await fs.readFileSync(sourceFileName))
-
-  const outFileName = path.join(
-    path.dirname(sourceFileName),
-    path.basename(sourceFileName, path.extname(sourceFileName)) + '.json'
-  )
-  fs.writeFileSync(
-    outFileName,
-    JSON.stringify(
-      json,
-      (k, v) => {
-        if (typeof v === 'bigint') {
-          if (v < Number.MIN_SAFE_INTEGER || v > Number.MAX_SAFE_INTEGER) return v.toString()
-          return Number(v)
-        }
-        return v
-      },
-      2
-    )
-  )
-}
-
-init()

@@ -15,19 +15,37 @@ npm install fbx-parser
 ## Usage
 
 ```ts
-import * as FBX from 'fbx-parser'
+import * as FBXParser from 'fbx-parser'
+import * as fs from 'fs'
 
-FBX.parse(fbxTextFileString) // returns FBXNode
+// when encoding is known
+const fbx = parseText(fbxString)
+const fbx = parseBinary(fbxUint8Array)
+
+// when file encoding is unknown
+const file = 'file.fbx'
+let fbx: FBX
+try {
+  // try binary file encoding
+  fbx = parse(await fs.readFileSync(file))
+} catch (e) {
+  // try text file encoding
+  fbx = parse(await fs.readFileSync(file, 'utf-8'))
+}
 ```
 
 Calling the parser will return the same raw structure of the FBX file, starting with the root node named `''`:
 
 ```ts
+type FBX = FBXNode[]
+
 interface FBXNode {
   name: string
-  properties: string[]
-  subnodes: FBXNode[]
+  props: FBXProperty[]
+  nodes: FBXNode[]
 }
+
+type FBXProperty = boolean | number | BigInt | boolean[] | number[] | BigInt[] | string
 ```
 
 ```ts

@@ -1,6 +1,6 @@
 {
   "name": "fbx-parser",
-  "version": "1.0.3",
+  "version": "2.0.6",
   "description": "This parser will parse FBX text files and convert them into a JavaScript-Object structure.",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
@@ -30,6 +30,7 @@
     "@types/chai": "^4.2.14",
     "@types/mocha": "^8.2.0",
     "@types/node": "^14.14.19",
+    "@types/pako": "^1.0.1",
     "@typescript-eslint/eslint-plugin": "^4.10.0",
     "@typescript-eslint/parser": "^4.10.0",
     "chai": "^4.2.0",
@@ -38,5 +39,9 @@
     "nyc": "^15.1.0",
     "ts-node": "^9.1.1",
     "typescript": "^4.1.3"
+  },
+  "dependencies": {
+    "@picode/binary-reader": "^0.0.4",
+    "pako": "^2.0.3"
   }
 }

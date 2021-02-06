@@ -1,0 +1,2138 @@
+[
+  {
+    "name": "FBXHeaderExtension",
+    "props": [],
+    "nodes": [
+      {
+        "name": "FBXHeaderVersion",
+        "props": [
+          1003
+        ],
+        "nodes": []
+      },
+      {
+        "name": "FBXVersion",
+        "props": [
+          6100
+        ],
+        "nodes": []
+      },
+      {
+        "name": "CreationTimeStamp",
+        "props": [],
+        "nodes": [
+          {
+            "name": "Version",
+            "props": [
+              1000
+            ],
+            "nodes": []
+          },
+          {
+            "name": "Year",
+            "props": [
+              2014
+            ],
+            "nodes": []
+          },
+          {
+            "name": "Month",
+            "props": [
+              3
+            ],
+            "nodes": []
+          },
+          {
+            "name": "Day",
+            "props": [
+              20
+            ],
+            "nodes": []
+          },
+          {
+            "name": "Hour",
+            "props": [
+              17
+            ],
+            "nodes": []
+          },
+          {
+            "name": "Minute",
+            "props": [
+              38
+            ],
+            "nodes": []
+          },
+          {
+            "name": "Second",
+            "props": [
+              29
+            ],
+            "nodes": []
+          },
+          {
+            "name": "Millisecond",
+            "props": [
+              0
+            ],
+            "nodes": []
+          }
+        ]
+      },
+      {
+        "name": "Creator",
+        "props": [
+          "FBX SDK/FBX Plugins build 20070228"
+        ],
+        "nodes": []
+      },
+      {
+        "name": "OtherFlags",
+        "props": [],
+        "nodes": [
+          {
+            "name": "FlagPLE",
+            "props": [
+              0
+            ],
+            "nodes": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "CreationTime",
+    "props": [
+      "2014-03-20 17:38:29:000"
+    ],
+    "nodes": []
+  },
+  {
+    "name": "Creator",
+    "props": [
+      "Blender version 2.69 (sub 10)"
+    ],
+    "nodes": []
+  },
+  {
+    "name": "Definitions",
+    "props": [],
+    "nodes": [
+      {
+        "name": "Version",
+        "props": [
+          100
+        ],
+        "nodes": []
+      },
+      {
+        "name": "Count",
+        "props": [
+          3
+        ],
+        "nodes": []
+      },
+      {
+        "name": "ObjectType",
+        "props": [
+          "Model"
+        ],
+        "nodes": [
+          {
+            "name": "Count",
+            "props": [
+              1
+            ],
+            "nodes": []
+          }
+        ]
+      },
+      {
+        "name": "ObjectType",
+        "props": [
+          "Geometry"
+        ],
+        "nodes": [
+          {
+            "name": "Count",
+            "props": [
+              1
+            ],
+            "nodes": []
+          }
+        ]
+      },
+      {
+        "name": "ObjectType",
+        "props": [
+          "Material"
+        ],
+        "nodes": [
+          {
+            "name": "Count",
+            "props": [
+              1
+            ],
+            "nodes": []
+          }
+        ]
+      },
+      {
+        "name": "ObjectType",
+        "props": [
+          "Pose"
+        ],
+        "nodes": [
+          {
+            "name": "Count",
+            "props": [
+              1
+            ],
+            "nodes": []
+          }
+        ]
+      },
+      {
+        "name": "ObjectType",
+        "props": [
+          "GlobalSettings"
+        ],
+        "nodes": [
+          {
+            "name": "Count",
+            "props": [
+              1
+            ],
+            "nodes": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "Objects",
+    "props": [],
+    "nodes": [
+      {
+        "name": "Model",
+        "props": [
+          "Model::Rock_Medium_SPR",
+          "Mesh"
+        ],
+        "nodes": [
+          {
+            "name": "Version",
+            "props": [
+              232
+            ],
+            "nodes": []
+          },
+          {
+            "name": "Properties60",
+            "props": [],
+            "nodes": [
+              {
+                "name": "Property",
+                "props": [
+                  "QuaternionInterpolate",
+                  "bool",
+                  "",
+                  0
+                ],
+                "nodes": []
+              },
+              {
+                "name": "Property",
+                "props": [
+                  "Visibility",
+                  "Visibility",
+                  "A+",
+                  1
+                ],
+                "nodes": []
+              },
+              {
+                "name": "Property",
+                "props": [
+                  "Lcl Translation",
+                  "Lcl Translation",
+                  "A+",
+                  0,
+                  0,
+                  -534.047119140625
+                ],
+                "nodes": []
+              },
+              {
+                "name": "Property",
+                "props": [
+                  "Lcl Rotation",
+                  "Lcl Rotation",
+                  "A+",
+                  0.000009334667643,
+                  0,
+                  0
+                ],
+                "nodes": []
+              },
+              {
+                "name": "Property",
+                "props": [
+                  "Lcl Scaling",
+                  "Lcl Scaling",
+                  "A+",
+                  1,
+                  1,
+                  1
+                ],
+                "nodes": []
+              },
+              {
+                "name": "Property",
+                "props": [
+                  "RotationOffset",
+                  "Vector3D",
+                  "",
+                  0,
+                  0,
+                  0
+                ],
+                "nodes": []
+              },
+              {
+                "name": "Property",
+                "props": [
+                  "RotationPivot",
+                  "Vector3D",
+                  "",
+                  0,
+                  0,
+                  0
+                ],
+                "nodes": []
+              },
+              {
+                "name": "Property",
+                "props": [
+                  "ScalingOffset",
+                  "Vector3D",
+                  "",
+                  0,
+                  0,
+                  0
+                ],
+                "nodes": []
+              },
+              {
+                "name": "Property",
+                "props": [
+                  "ScalingPivot",
+                  "Vector3D",
+                  "",
+                  0,
+                  0,
+                  0
+                ],
+                "nodes": []
+              },
+              {
+                "name": "Property",
+                "props": [
+                  "TranslationActive",
+                  "bool",
+                  "",
+                  0
+                ],
+                "nodes": []
+              },
+              {
+                "name": "Property",
+                "props": [
+                  "TranslationMin",
+                  "Vector3D",
+                  "",
+                  0,
+                  0,
+                  0
+                ],
+                "nodes": []
+              },
+              {
+                "name": "Property",
+                "props": [
+                  "TranslationMax",
+                  "Vector3D",
+                  "",
+                  0,
+                  0,
+                  0
+                ],
+                "nodes": []
+              },
+              {
+                "name": "Property",
+                "props": [
+                  "TranslationMinX",
+                  "bool",
+                  "",
+                  0
+                ],
+                "nodes": []
+              },
+              {
+                "name": "Property",
+                "props": [
+                  "TranslationMinY",
+                  "bool",
+                  "",
+                  0
+                ],
+                "nodes": []
+              },
+              {
+                "name": "Property",
+                "props": [
+                  "TranslationMinZ",
+                  "bool",
+                  "",
+                  0
+                ],
+                "nodes": []
+              },
+              {
+                "name": "Property",
+                "props": [
+                  "TranslationMaxX",
+                  "bool",
+                  "",
+                  0
+                ],
+                "nodes": []
+              },
+              {
+                "name": "Property",
+                "props": [
+                  "TranslationMaxY",
+                  "bool",
+                  "",
+                  0
+                ],
+                "nodes": []
+              },
+              {
+                "name": "Property",
+                "props": [
+                  "TranslationMaxZ",
+                  "bool",
+                  "",
+                  0
+                ],
+                "nodes": []
+              },
+              {
+                "name": "Property",
+                "props": [
+                  "RotationOrder",
+                  "enum",
+                  "",
+                  0
+                ],
+                "nodes": []
+              },
+              {
+                "name": "Property",
+                "props": [
+                  "RotationSpaceForLimitOnly",
+                  "bool",
+                  "",
+                  0
+                ],
+                "nodes": []
+              },
+              {
+                "name": "Property",
+                "props": [
+                  "AxisLen",
+                  "double",
+                  "",
+                  10
+                ],
+                "nodes": []
+              },
+              {
+                "name": "Property",
+                "props": [
+                  "PreRotation",
+                  "Vector3D",
+                  "",
+                  0,
+                  0,
+                  0
+                ],
+                "nodes": []
+              },
+              {
+                "name": "Property",
+                "props": [
+                  "PostRotation",
+                  "Vector3D",
+                  "",
+                  0,
+                  0,
+                  0
+                ],
+                "nodes": []
+              },
+              {
+                "name": "Property",
+                "props": [
+                  "RotationActive",
+                  "bool",
+                  "",
+                  0
+                ],
+                "nodes": []
+              },
+              {
+                "name": "Property",
+                "props": [
+                  "RotationMin",
+                  "Vector3D",
+                  "",
+                  0,
+                  0,
+                  0
+                ],
+                "nodes": []
+              },
+              {
+                "name": "Property",
+                "props": [
+                  "RotationMax",
+                  "Vector3D",
+                  "",
+                  0,
+                  0,
+                  0
+                ],
+                "nodes": []
+              },
+              {
+                "name": "Property",
+                "props": [
+                  "RotationMinX",
+                  "bool",
+                  "",
+                  0
+                ],
+                "nodes": []
+              },
+              {
+                "name": "Property",
+                "props": [
+                  "RotationMinY",
+                  "bool",
+                  "",
+                  0
+                ],
+                "nodes": []
+              },
+              {
+                "name": "Property",
+                "props": [
+                  "RotationMinZ",
+                  "bool",
+                  "",
+                  0
+                ],
+                "nodes": []
+              },
+              {
+                "name": "Property",
+                "props": [
+                  "RotationMaxX",
+                  "bool",
+                  "",
+                  0
+                ],
+                "nodes": []
+              },
+              {
+                "name": "Property",
+                "props": [
+                  "RotationMaxY",
+                  "bool",
+                  "",
+                  0
+                ],
+                "nodes": []
+              },
+              {
+                "name": "Property",
+                "props": [
+                  "RotationMaxZ",
+                  "bool",
+                  "",
+                  0
+                ],
+                "nodes": []
+              },
+              {
+                "name": "Property",
+                "props": [
+                  "RotationStiffnessX",
+                  "double",
+                  "",
+                  0
+                ],
+                "nodes": []
+              },
+              {
+                "name": "Property",
+                "props": [
+                  "RotationStiffnessY",
+                  "double",
+                  "",
+                  0
+                ],
+                "nodes": []
+              },
+              {
+                "name": "Property",
+                "props": [
+                  "RotationStiffnessZ",
+                  "double",
+                  "",
+                  0
+                ],
+                "nodes": []
+              },
+              {
+                "name": "Property",
+                "props": [
+                  "MinDampRangeX",
+                  "double",
+                  "",
+                  0
+                ],
+                "nodes": []
+              },
+              {
+                "name": "Property",
+                "props": [
+                  "MinDampRangeY",
+                  "double",
+                  "",
+                  0
+                ],
+                "nodes": []
+              },
+              {
+                "name": "Property",
+                "props": [
+                  "MinDampRangeZ",
+                  "double",
+                  "",
+                  0
+                ],
+                "nodes": []
+              },
+              {
+                "name": "Property",
+                "props": [
+                  "MaxDampRangeX",
+                  "double",
+                  "",
+                  0
+                ],
+                "nodes": []
+              },
+              {
+                "name": "Property",
+                "props": [
+                  "MaxDampRangeY",
+                  "double",
+                  "",
+                  0
+                ],
+                "nodes": []
+              },
+              {
+                "name": "Property",
+                "props": [
+                  "MaxDampRangeZ",
+                  "double",
+                  "",
+                  0
+                ],
+                "nodes": []
+              },
+              {
+                "name": "Property",
+                "props": [
+                  "MinDampStrengthX",
+                  "double",
+                  "",
+                  0
+                ],
+                "nodes": []
+              },
+              {
+                "name": "Property",
+                "props": [
+                  "MinDampStrengthY",
+                  "double",
+                  "",
+                  0
+                ],
+                "nodes": []
+              },
+              {
+                "name": "Property",
+                "props": [
+                  "MinDampStrengthZ",
+                  "double",
+                  "",
+                  0
+                ],
+                "nodes": []
+              },
+              {
+                "name": "Property",
+                "props": [
+                  "MaxDampStrengthX",
+                  "double",
+                  "",
+                  0
+                ],
+                "nodes": []
+              },
+              {
+                "name": "Property",
+                "props": [
+                  "MaxDampStrengthY",
+                  "double",
+                  "",
+                  0
+                ],
+                "nodes": []
+              },
+              {
+                "name": "Property",
+                "props": [
+                  "MaxDampStrengthZ",
+                  "double",
+                  "",
+                  0
+                ],
+                "nodes": []
+              },
+              {
+                "name": "Property",
+                "props": [
+                  "PreferedAngleX",
+                  "double",
+                  "",
+                  0
+                ],
+                "nodes": []
+              },
+              {
+                "name": "Property",
+                "props": [
+                  "PreferedAngleY",
+                  "double",
+                  "",
+                  0
+                ],
+                "nodes": []
+              },
+              {
+                "name": "Property",
+                "props": [
+                  "PreferedAngleZ",
+                  "double",
+                  "",
+                  0
+                ],
+                "nodes": []
+              },
+              {
+                "name": "Property",
+                "props": [
+                  "InheritType",
+                  "enum",
+                  "",
+                  0
+                ],
+                "nodes": []
+              },
+              {
+                "name": "Property",
+                "props": [
+                  "ScalingActive",
+                  "bool",
+                  "",
+                  0
+                ],
+                "nodes": []
+              },
+              {
+                "name": "Property",
+                "props": [
+                  "ScalingMin",
+                  "Vector3D",
+                  "",
+                  1,
+                  1,
+                  1
+                ],
+                "nodes": []
+              },
+              {
+                "name": "Property",
+                "props": [
+                  "ScalingMax",
+                  "Vector3D",
+                  "",
+                  1,
+                  1,
+                  1
+                ],
+                "nodes": []
+              },
+              {
+                "name": "Property",
+                "props": [
+                  "ScalingMinX",
+                  "bool",
+                  "",
+                  0
+                ],
+                "nodes": []
+              },
+              {
+                "name": "Property",
+                "props": [
+                  "ScalingMinY",
+                  "bool",
+                  "",
+                  0
+                ],
+                "nodes": []
+              },
+              {
+                "name": "Property",
+                "props": [
+                  "ScalingMinZ",
+                  "bool",
+                  "",
+                  0
+                ],
+                "nodes": []
+              },
+              {
+                "name": "Property",
+                "props": [
+                  "ScalingMaxX",
+                  "bool",
+                  "",
+                  0
+                ],
+                "nodes": []
+              },
+              {
+                "name": "Property",
+                "props": [
+                  "ScalingMaxY",
+                  "bool",
+                  "",
+                  0
+                ],
+                "nodes": []
+              },
+              {
+                "name": "Property",
+                "props": [
+                  "ScalingMaxZ",
+                  "bool",
+                  "",
+                  0
+                ],
+                "nodes": []
+              },
+              {
+                "name": "Property",
+                "props": [
+                  "GeometricTranslation",
+                  "Vector3D",
+                  "",
+                  0,
+                  0,
+                  0
+                ],
+                "nodes": []
+              },
+              {
+                "name": "Property",
+                "props": [
+                  "GeometricRotation",
+                  "Vector3D",
+                  "",
+                  0,
+                  0,
+                  0
+                ],
+                "nodes": []
+              },
+              {
+                "name": "Property",
+                "props": [
+                  "GeometricScaling",
+                  "Vector3D",
+                  "",
+                  1,
+                  1,
+                  1
+                ],
+                "nodes": []
+              },
+              {
+                "name": "Property",
+                "props": [
+                  "LookAtProperty",
+                  "object",
+                  ""
+                ],
+                "nodes": []
+              },
+              {
+                "name": "Property",
+                "props": [
+                  "UpVectorProperty",
+                  "object",
+                  ""
+                ],
+                "nodes": []
+              },
+              {
+                "name": "Property",
+                "props": [
+                  "Show",
+                  "bool",
+                  "",
+                  1
+                ],
+                "nodes": []
+              },
+              {
+                "name": "Property",
+                "props": [
+                  "NegativePercentShapeSupport",
+                  "bool",
+                  "",
+                  1
+                ],
+                "nodes": []
+              },
+              {
+                "name": "Property",
+                "props": [
+                  "DefaultAttributeIndex",
+                  "int",
+                  "",
+                  0
+                ],
+                "nodes": []
+              },
+              {
+                "name": "Property",
+                "props": [
+                  "Color",
+                  "Color",
+                  "A",
+                  0.8,
+                  0.8,
+                  0.8
+                ],
+                "nodes": []
+              },
+              {
+                "name": "Property",
+                "props": [
+                  "Size",
+                  "double",
+                  "",
+                  100
+                ],
+                "nodes": []
+              },
+              {
+                "name": "Property",
+                "props": [
+                  "Look",
+                  "enum",
+                  "",
+                  1
+                ],
+                "nodes": []
+              }
+            ]
+          },
+          {
+            "name": "MultiLayer",
+            "props": [
+              0
+            ],
+            "nodes": []
+          },
+          {
+            "name": "MultiTake",
+            "props": [
+              1
+            ],
+            "nodes": []
+          },
+          {
+            "name": "Shading",
+            "props": [
+              true
+            ],
+            "nodes": []
+          },
+          {
+            "name": "Culling",
+            "props": [
+              "CullingOff"
+            ],
+            "nodes": []
+          },
+          {
+            "name": "Vertices",
+            "props": [
+              0,
+              0.1048,
+              39.291698,
+              0,
+              0.0434,
+              -44.424301,
+              0,
+              38.654301,
+              -41.818802,
+              0,
+              39.455002,
+              44.4244
+            ],
+            "nodes": []
+          },
+          {
+            "name": "PolygonVertexIndex",
+            "props": [
+              0,
+              1,
+              2,
+              -4
+            ],
+            "nodes": []
+          },
+          {
+            "name": "GeometryVersion",
+            "props": [
+              124
+            ],
+            "nodes": []
+          },
+          {
+            "name": "LayerElementNormal",
+            "props": [
+              0
+            ],
+            "nodes": [
+              {
+                "name": "Version",
+                "props": [
+                  101
+                ],
+                "nodes": []
+              },
+              {
+                "name": "Name",
+                "props": [
+                  ""
+                ],
+                "nodes": []
+              },
+              {
+                "name": "MappingInformationType",
+                "props": [
+                  "ByPolygonVertex"
+                ],
+                "nodes": []
+              },
+              {
+                "name": "ReferenceInformationType",
+                "props": [
+                  "Direct"
+                ],
+                "nodes": []
+              },
+              {
+                "name": "Normals",
+                "props": [
+                  1,
+                  0,
+                  0,
+                  1,
+                  0,
+                  0,
+                  1,
+                  0,
+                  0,
+                  1,
+                  0,
+                  0
+                ],
+                "nodes": []
+              }
+            ]
+          },
+          {
+            "name": "LayerElementSmoothing",
+            "props": [
+              0
+            ],
+            "nodes": [
+              {
+                "name": "Version",
+                "props": [
+                  102
+                ],
+                "nodes": []
+              },
+              {
+                "name": "Name",
+                "props": [
+                  ""
+                ],
+                "nodes": []
+              },
+              {
+                "name": "MappingInformationType",
+                "props": [
+                  "ByPolygon"
+                ],
+                "nodes": []
+              },
+              {
+                "name": "ReferenceInformationType",
+                "props": [
+                  "Direct"
+                ],
+                "nodes": []
+              },
+              {
+                "name": "Smoothing",
+                "props": [
+                  1
+                ],
+                "nodes": []
+              }
+            ]
+          },
+          {
+            "name": "LayerElementUV",
+            "props": [
+              0
+            ],
+            "nodes": [
+              {
+                "name": "Version",
+                "props": [
+                  101
+                ],
+                "nodes": []
+              },
+              {
+                "name": "Name",
+                "props": [
+                  "UVMap"
+                ],
+                "nodes": []
+              },
+              {
+                "name": "MappingInformationType",
+                "props": [
+                  "ByPolygonVertex"
+                ],
+                "nodes": []
+              },
+              {
+                "name": "ReferenceInformationType",
+                "props": [
+                  "IndexToDirect"
+                ],
+                "nodes": []
+              },
+              {
+                "name": "UV",
+                "props": [
+                  0.4939,
+                  0.7468,
+                  0.6308,
+                  0.7456,
+                  0.5021,
+                  0.6844,
+                  0.6349,
+                  0.6843
+                ],
+                "nodes": []
+              },
+              {
+                "name": "UVIndex",
+                "props": [
+                  2,
+                  3,
+                  1,
+                  0
+                ],
+                "nodes": []
+              }
+            ]
+          },
+          {
+            "name": "LayerElementTexture",
+            "props": [
+              0
+            ],
+            "nodes": [
+              {
+                "name": "Version",
+                "props": [
+                  101
+                ],
+                "nodes": []
+              },
+              {
+                "name": "Name",
+                "props": [
+                  ""
+                ],
+                "nodes": []
+              },
+              {
+                "name": "MappingInformationType",
+                "props": [
+                  "NoMappingInformation"
+                ],
+                "nodes": []
+              },
+              {
+                "name": "ReferenceInformationType",
+                "props": [
+                  "IndexToDirect"
+                ],
+                "nodes": []
+              },
+              {
+                "name": "BlendMode",
+                "props": [
+                  "Translucent"
+                ],
+                "nodes": []
+              },
+              {
+                "name": "TextureAlpha",
+                "props": [
+                  1
+                ],
+                "nodes": []
+              },
+              {
+                "name": "TextureId",
+                "props": [],
+                "nodes": []
+              },
+              {
+                "name": "LayerElementMaterial",
+                "props": [
+                  0
+                ],
+                "nodes": [
+                  {
+                    "name": "Version",
+                    "props": [
+                      101
+                    ],
+                    "nodes": []
+                  },
+                  {
+                    "name": "Name",
+                    "props": [
+                      ""
+                    ],
+                    "nodes": []
+                  },
+                  {
+                    "name": "MappingInformationType",
+                    "props": [
+                      "AllSame"
+                    ],
+                    "nodes": []
+                  },
+                  {
+                    "name": "ReferenceInformationType",
+                    "props": [
+                      "IndexToDirect"
+                    ],
+                    "nodes": []
+                  },
+                  {
+                    "name": "Materials",
+                    "props": [
+                      0
+                    ],
+                    "nodes": []
+                  }
+                ]
+              },
+              {
+                "name": "Layer",
+                "props": [
+                  0
+                ],
+                "nodes": [
+                  {
+                    "name": "Version",
+                    "props": [
+                      100
+                    ],
+                    "nodes": []
+                  },
+                  {
+                    "name": "LayerElement",
+                    "props": [],
+                    "nodes": [
+                      {
+                        "name": "Type",
+                        "props": [
+                          "LayerElementNormal"
+                        ],
+                        "nodes": []
+                      },
+                      {
+                        "name": "TypedIndex",
+                        "props": [
+                          0
+                        ],
+                        "nodes": []
+                      }
+                    ]
+                  },
+                  {
+                    "name": "LayerElement",
+                    "props": [],
+                    "nodes": [
+                      {
+                        "name": "Type",
+                        "props": [
+                          "LayerElementSmoothing"
+                        ],
+                        "nodes": []
+                      },
+                      {
+                        "name": "TypedIndex",
+                        "props": [
+                          0
+                        ],
+                        "nodes": []
+                      }
+                    ]
+                  },
+                  {
+                    "name": "LayerElement",
+                    "props": [],
+                    "nodes": [
+                      {
+                        "name": "Type",
+                        "props": [
+                          "LayerElementUV"
+                        ],
+                        "nodes": []
+                      },
+                      {
+                        "name": "TypedIndex",
+                        "props": [
+                          0
+                        ],
+                        "nodes": []
+                      }
+                    ]
+                  },
+                  {
+                    "name": "LayerElement",
+                    "props": [],
+                    "nodes": [
+                      {
+                        "name": "Type",
+                        "props": [
+                          "LayerElementTexture"
+                        ],
+                        "nodes": []
+                      },
+                      {
+                        "name": "TypedIndex",
+                        "props": [
+                          0
+                        ],
+                        "nodes": []
+                      }
+                    ]
+                  },
+                  {
+                    "name": "LayerElement",
+                    "props": [],
+                    "nodes": [
+                      {
+                        "name": "Type",
+                        "props": [
+                          "LayerElementMaterial"
+                        ],
+                        "nodes": []
+                      },
+                      {
+                        "name": "TypedIndex",
+                        "props": [
+                          0
+                        ],
+                        "nodes": []
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "name": "Material",
+            "props": [
+              "Material::CactusPack_Sprite",
+              ""
+            ],
+            "nodes": [
+              {
+                "name": "Version",
+                "props": [
+                  102
+                ],
+                "nodes": []
+              },
+              {
+                "name": "ShadingModel",
+                "props": [
+                  "lambert"
+                ],
+                "nodes": []
+              },
+              {
+                "name": "MultiLayer",
+                "props": [
+                  0
+                ],
+                "nodes": []
+              },
+              {
+                "name": "Properties60",
+                "props": [],
+                "nodes": [
+                  {
+                    "name": "Property",
+                    "props": [
+                      "ShadingModel",
+                      "KString",
+                      "",
+                      "Lambert"
+                    ],
+                    "nodes": []
+                  },
+                  {
+                    "name": "Property",
+                    "props": [
+                      "MultiLayer",
+                      "bool",
+                      "",
+                      0
+                    ],
+                    "nodes": []
+                  },
+                  {
+                    "name": "Property",
+                    "props": [
+                      "EmissiveColor",
+                      "ColorRGB",
+                      "",
+                      0.8,
+                      0.8,
+                      0.8
+                    ],
+                    "nodes": []
+                  },
+                  {
+                    "name": "Property",
+                    "props": [
+                      "EmissiveFactor",
+                      "double",
+                      "",
+                      0
+                    ],
+                    "nodes": []
+                  },
+                  {
+                    "name": "Property",
+                    "props": [
+                      "AmbientColor",
+                      "ColorRGB",
+                      "",
+                      1,
+                      1,
+                      1
+                    ],
+                    "nodes": []
+                  },
+                  {
+                    "name": "Property",
+                    "props": [
+                      "AmbientFactor",
+                      "double",
+                      "",
+                      1
+                    ],
+                    "nodes": []
+                  },
+                  {
+                    "name": "Property",
+                    "props": [
+                      "DiffuseColor",
+                      "ColorRGB",
+                      "",
+                      0.8,
+                      0.8,
+                      0.8
+                    ],
+                    "nodes": []
+                  },
+                  {
+                    "name": "Property",
+                    "props": [
+                      "DiffuseFactor",
+                      "double",
+                      "",
+                      0.8
+                    ],
+                    "nodes": []
+                  },
+                  {
+                    "name": "Property",
+                    "props": [
+                      "Bump",
+                      "Vector3D",
+                      "",
+                      0,
+                      0,
+                      0
+                    ],
+                    "nodes": []
+                  },
+                  {
+                    "name": "Property",
+                    "props": [
+                      "TransparentColor",
+                      "ColorRGB",
+                      "",
+                      1,
+                      1,
+                      1
+                    ],
+                    "nodes": []
+                  },
+                  {
+                    "name": "Property",
+                    "props": [
+                      "TransparencyFactor",
+                      "double",
+                      "",
+                      0
+                    ],
+                    "nodes": []
+                  },
+                  {
+                    "name": "Property",
+                    "props": [
+                      "SpecularColor",
+                      "ColorRGB",
+                      "",
+                      1,
+                      1,
+                      1
+                    ],
+                    "nodes": []
+                  },
+                  {
+                    "name": "Property",
+                    "props": [
+                      "SpecularFactor",
+                      "double",
+                      "",
+                      0.5
+                    ],
+                    "nodes": []
+                  },
+                  {
+                    "name": "Property",
+                    "props": [
+                      "ShininessExponent",
+                      "double",
+                      "",
+                      12.3
+                    ],
+                    "nodes": []
+                  },
+                  {
+                    "name": "Property",
+                    "props": [
+                      "ReflectionColor",
+                      "ColorRGB",
+                      "",
+                      0,
+                      0,
+                      0
+                    ],
+                    "nodes": []
+                  },
+                  {
+                    "name": "Property",
+                    "props": [
+                      "ReflectionFactor",
+                      "double",
+                      "",
+                      1
+                    ],
+                    "nodes": []
+                  },
+                  {
+                    "name": "Property",
+                    "props": [
+                      "Emissive",
+                      "ColorRGB",
+                      "",
+                      0,
+                      0,
+                      0
+                    ],
+                    "nodes": []
+                  },
+                  {
+                    "name": "Property",
+                    "props": [
+                      "Ambient",
+                      "ColorRGB",
+                      "",
+                      1,
+                      1,
+                      1
+                    ],
+                    "nodes": []
+                  },
+                  {
+                    "name": "Property",
+                    "props": [
+                      "Diffuse",
+                      "ColorRGB",
+                      "",
+                      0.8,
+                      0.8,
+                      0.8
+                    ],
+                    "nodes": []
+                  },
+                  {
+                    "name": "Property",
+                    "props": [
+                      "Specular",
+                      "ColorRGB",
+                      "",
+                      1,
+                      1,
+                      1
+                    ],
+                    "nodes": []
+                  },
+                  {
+                    "name": "Property",
+                    "props": [
+                      "Shininess",
+                      "double",
+                      "",
+                      12.3
+                    ],
+                    "nodes": []
+                  },
+                  {
+                    "name": "Property",
+                    "props": [
+                      "Opacity",
+                      "double",
+                      "",
+                      1
+                    ],
+                    "nodes": []
+                  },
+                  {
+                    "name": "Property",
+                    "props": [
+                      "Reflectivity",
+                      "double",
+                      "",
+                      0
+                    ],
+                    "nodes": []
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "name": "Pose",
+            "props": [
+              "Pose::BIND_POSES",
+              "BindPose"
+            ],
+            "nodes": [
+              {
+                "name": "Type",
+                "props": [
+                  "BindPose"
+                ],
+                "nodes": []
+              },
+              {
+                "name": "Version",
+                "props": [
+                  100
+                ],
+                "nodes": []
+              },
+              {
+                "name": "Properties60",
+                "props": [],
+                "nodes": []
+              },
+              {
+                "name": "NbPoseNodes",
+                "props": [
+                  1
+                ],
+                "nodes": []
+              },
+              {
+                "name": "PoseNode",
+                "props": [],
+                "nodes": [
+                  {
+                    "name": "Node",
+                    "props": [
+                      "Model::Rock_Medium_SPR"
+                    ],
+                    "nodes": []
+                  },
+                  {
+                    "name": "Matrix",
+                    "props": [
+                      7.5497901e-8,
+                      1,
+                      1.62920685e-7,
+                      0,
+                      -1,
+                      7.5497901e-8,
+                      1.2e-14,
+                      0,
+                      0,
+                      -1.62920685e-7,
+                      1,
+                      0,
+                      0,
+                      0,
+                      -534.047119140625,
+                      1
+                    ],
+                    "nodes": []
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "name": "GlobalSettings",
+            "props": [],
+            "nodes": [
+              {
+                "name": "Version",
+                "props": [
+                  1000
+                ],
+                "nodes": []
+              },
+              {
+                "name": "Properties60",
+                "props": [],
+                "nodes": [
+                  {
+                    "name": "Property",
+                    "props": [
+                      "UpAxis",
+                      "int",
+                      "",
+                      1
+                    ],
+                    "nodes": []
+                  },
+                  {
+                    "name": "Property",
+                    "props": [
+                      "UpAxisSign",
+                      "int",
+                      "",
+                      1
+                    ],
+                    "nodes": []
+                  },
+                  {
+                    "name": "Property",
+                    "props": [
+                      "FrontAxis",
+                      "int",
+                      "",
+                      2
+                    ],
+                    "nodes": []
+                  },
+                  {
+                    "name": "Property",
+                    "props": [
+                      "FrontAxisSign",
+                      "int",
+                      "",
+                      1
+                    ],
+                    "nodes": []
+                  },
+                  {
+                    "name": "Property",
+                    "props": [
+                      "CoordAxis",
+                      "int",
+                      "",
+                      0
+                    ],
+                    "nodes": []
+                  },
+                  {
+                    "name": "Property",
+                    "props": [
+                      "CoordAxisSign",
+                      "int",
+                      "",
+                      1
+                    ],
+                    "nodes": []
+                  },
+                  {
+                    "name": "Property",
+                    "props": [
+                      "UnitScaleFactor",
+                      "double",
+                      "",
+                      1
+                    ],
+                    "nodes": []
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Relations",
+        "props": [],
+        "nodes": [
+          {
+            "name": "Model",
+            "props": [
+              "Model::Rock_Medium_SPR",
+              "Mesh"
+            ],
+            "nodes": []
+          },
+          {
+            "name": "Model",
+            "props": [
+              "Model::Producer Perspective",
+              "Camera"
+            ],
+            "nodes": []
+          },
+          {
+            "name": "Model",
+            "props": [
+              "Model::Producer Top",
+              "Camera"
+            ],
+            "nodes": []
+          },
+          {
+            "name": "Model",
+            "props": [
+              "Model::Producer Bottom",
+              "Camera"
+            ],
+            "nodes": []
+          },
+          {
+            "name": "Model",
+            "props": [
+              "Model::Producer Front",
+              "Camera"
+            ],
+            "nodes": []
+          },
+          {
+            "name": "Model",
+            "props": [
+              "Model::Producer Back",
+              "Camera"
+            ],
+            "nodes": []
+          },
+          {
+            "name": "Model",
+            "props": [
+              "Model::Producer Right",
+              "Camera"
+            ],
+            "nodes": []
+          },
+          {
+            "name": "Model",
+            "props": [
+              "Model::Producer Left",
+              "Camera"
+            ],
+            "nodes": []
+          },
+          {
+            "name": "Model",
+            "props": [
+              "Model::Camera Switcher",
+              "CameraSwitcher"
+            ],
+            "nodes": []
+          },
+          {
+            "name": "Material",
+            "props": [
+              "Material::CactusPack_Sprite",
+              ""
+            ],
+            "nodes": []
+          }
+        ]
+      },
+      {
+        "name": "Connections",
+        "props": [],
+        "nodes": [
+          {
+            "name": "Connect",
+            "props": [
+              "OO",
+              "Model::Rock_Medium_SPR",
+              "Model::Scene"
+            ],
+            "nodes": []
+          },
+          {
+            "name": "Connect",
+            "props": [
+              "OO",
+              "Material::CactusPack_Sprite",
+              "Model::Rock_Medium_SPR"
+            ],
+            "nodes": []
+          }
+        ]
+      },
+      {
+        "name": "Takes",
+        "props": [],
+        "nodes": [
+          {
+            "name": "Current",
+            "props": [
+              ""
+            ],
+            "nodes": []
+          }
+        ]
+      },
+      {
+        "name": "Version5",
+        "props": [],
+        "nodes": [
+          {
+            "name": "AmbientRenderSettings",
+            "props": [],
+            "nodes": [
+              {
+                "name": "Version",
+                "props": [
+                  101
+                ],
+                "nodes": []
+              },
+              {
+                "name": "AmbientLightColor",
+                "props": [
+                  0,
+                  0,
+                  0,
+                  0
+                ],
+                "nodes": []
+              }
+            ]
+          },
+          {
+            "name": "FogOptions",
+            "props": [],
+            "nodes": [
+              {
+                "name": "FogEnable",
+                "props": [
+                  0
+                ],
+                "nodes": []
+              },
+              {
+                "name": "FogMode",
+                "props": [
+                  0
+                ],
+                "nodes": []
+              },
+              {
+                "name": "FogDensity",
+                "props": [
+                  0
+                ],
+                "nodes": []
+              },
+              {
+                "name": "FogStart",
+                "props": [
+                  5
+                ],
+                "nodes": []
+              },
+              {
+                "name": "FogEnd",
+                "props": [
+                  25
+                ],
+                "nodes": []
+              },
+              {
+                "name": "FogColor",
+                "props": [
+                  0.1,
+                  0.1,
+                  0.1,
+                  1
+                ],
+                "nodes": []
+              }
+            ]
+          },
+          {
+            "name": "Settings",
+            "props": [],
+            "nodes": [
+              {
+                "name": "FrameRate",
+                "props": [
+                  "24"
+                ],
+                "nodes": []
+              },
+              {
+                "name": "TimeFormat",
+                "props": [
+                  1
+                ],
+                "nodes": []
+              },
+              {
+                "name": "SnapOnFrames",
+                "props": [
+                  0
+                ],
+                "nodes": []
+              },
+              {
+                "name": "ReferenceTimeIndex",
+                "props": [
+                  -1
+                ],
+                "nodes": []
+              },
+              {
+                "name": "TimeLineStartTime",
+                "props": [
+                  0
+                ],
+                "nodes": []
+              },
+              {
+                "name": "TimeLineStopTime",
+                "props": [
+                  479181389250
+                ],
+                "nodes": []
+              }
+            ]
+          },
+          {
+            "name": "RendererSetting",
+            "props": [],
+            "nodes": [
+              {
+                "name": "DefaultCamera",
+                "props": [
+                  "Producer Perspective"
+                ],
+                "nodes": []
+              },
+              {
+                "name": "DefaultViewingMode",
+                "props": [
+                  0
+                ],
+                "nodes": []
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+]

@@ -4,32 +4,55 @@ import * as fs from 'fs'
 import { expect } from 'chai'
 
 describe('Parsing', function () {
-  let inputFile: string
-  let outputFile: string
+  let inputFileASCII: string
+  let outputFileASCII: string
+  let inputFileBinary: Uint8Array
+  let inputFileBinaryUTF8: string
+  let outputFileBinary: string
+
   before(async () => {
-    inputFile = await fs.readFileSync('./tests/data/Rock_Medium_SPR.fbx', 'utf8')
-  })
-  before(async () => {
-    outputFile = await fs.readFileSync('./tests/data/Rock_Medium_SPR.json', 'utf8')
-  })
-
-  let inputFileBinary: string
-  before(async () => {
-    inputFileBinary = await fs.readFileSync('./tests/data/binary.fbx', 'utf8')
+    inputFileASCII = await fs.readFileSync('./tests/data/ascii.fbx', 'utf8')
+    outputFileASCII = await fs.readFileSync('./tests/data/ascii.json', 'utf8')
+    inputFileBinary = await fs.readFileSync('./tests/data/binary.fbx')
+    inputFileBinaryUTF8 = await fs.readFileSync('./tests/data/binary.fbx', 'utf-8')
+    outputFileBinary = await fs.readFileSync('./tests/data/binary.json', 'utf-8')
   })
 
-  it('Test file', function () {
-    const result = FBX.parse(inputFile)
-    expect(result).deep.equal(JSON.parse(outputFile))
+  it('ASCII file', function () {
+    const result = FBX.parseText(inputFileASCII)
+    const json = JSON.stringify(result, (k, v) => {
+      if (typeof v === 'bigint') {
+        if (v < Number.MIN_SAFE_INTEGER || v > Number.MAX_SAFE_INTEGER) return v.toString()
+        return Number(v)
+      }
+      return v
+    })
+    // For some reason deep equal fails here without stringify/parse
+    expect(JSON.parse(json)).deep.equal(JSON.parse(outputFileASCII))
   })
 
-  it('Binary test file', function () {
-    const result = FBX.parse(inputFileBinary)
-    expect(result).equal(null)
+  it('Binary file', function () {
+    const result = FBX.parseBinary(inputFileBinary)
+    const json = JSON.stringify(result, (k, v) => {
+      if (typeof v === 'bigint') {
+        if (v < Number.MIN_SAFE_INTEGER || v > Number.MAX_SAFE_INTEGER) return v.toString()
+        return Number(v)
+      }
+      return v
+    })
+    // For some reason deep equal fails here without stringify/parse
+    expect(JSON.parse(json)).deep.equal(JSON.parse(outputFileBinary))
   })
 
-  it('Empty file', function () {
-    const result = FBX.parse('')
-    expect(result).deep.equal({ name: '', properties: [], subnodes: [] })
+  it('Empty ASCII file', function () {
+    const result = FBX.parseText('')
+    expect(result).deep.equal([])
+  })
+
+  it('Empty binary file', function () {
+    const call = function () {
+      FBX.parseBinary(new Uint8Array())
+    }
+    expect(call).to.throw('Not a binary FBX file')
   })
 })

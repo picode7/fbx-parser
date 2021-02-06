@@ -1,12 +1,6 @@
+import { FBXNode, FBXProperty } from './FBXNode'
+import { BinaryReader } from '@picode/binary-reader'
 import { inflate } from 'pako'
-
-type FBXProperty = boolean | number | BigInt | boolean[] | number[] | BigInt[] | string | Uint8Array
-
-interface FBXNode {
-  name: string
-  props: FBXProperty[]
-  nodes: FBXNode[]
-}
 
 const MAGIC = Uint8Array.from('Kaydara FBX Binary\x20\x20\x00\x1a\x00'.split(''), (v) => v.charCodeAt(0))
 
@@ -14,11 +8,11 @@ const MAGIC = Uint8Array.from('Kaydara FBX Binary\x20\x20\x00\x1a\x00'.split('')
  * Returns the root node as FBXNode or null in case of an error
  * @param binary the FBX binary file content
  */
-function parse(binary: Uint8Array) {
-  const data = { binary, position: 0 }
-  const magic = readByteArray(data, MAGIC.length).every((v, i) => v === MAGIC[i])
+export function parse(binary: Uint8Array) {
+  const data = new BinaryReader(binary)
+  const magic = data.readUint8Array(MAGIC.length).every((v, i) => v === MAGIC[i])
   if (!magic) throw new Error('Not a binary FBX file')
-  const fbxVersion = readUInt32(data)
+  const fbxVersion = data.readUint32()
 
   const rootNode: FBXNode = {
     name: '',
@@ -35,13 +29,13 @@ function parse(binary: Uint8Array) {
   return rootNode
 }
 
-function readNode(data: Data) {
-  const endOffset = readUInt32(data)
+function readNode(data: BinaryReader) {
+  const endOffset = data.readUint32()
   if (endOffset === 0) return null
-  const numProperties = readUInt32(data)
-  const propertyListLen = readUInt32(data)
-  const nameLen = readUByte(data)
-  const name = readString(data, nameLen)
+  const numProperties = data.readUint32()
+  const propertyListLen = data.readUint32()
+  const nameLen = data.readUint8()
+  const name = data.readArrayAsString(nameLen)
 
   const node: FBXNode = {
     name,
@@ -55,112 +49,52 @@ function readNode(data: Data) {
   }
 
   // Node List
-  while (endOffset - data.position > 13) {
+  while (endOffset - data.offset > 13) {
     const subnode = readNode(data)
     if (subnode !== null) node.nodes.push(subnode)
   }
-  data.position = endOffset
+  data.offset = endOffset
 
   return node
 }
 
-function readProperty(data: Data) {
-  const typeCode = readChar(data)
+function readProperty(data: BinaryReader) {
+  const typeCode = data.readUint8AsString()
 
   const read: { [index: string]: () => any } = {
-    Y: () => readInt16(data),
-    C: () => readBoolByte(data),
-    I: () => readInt32(data),
-    F: () => readFloat32(data),
-    D: () => readFloat64(data),
-    L: () => readInt64(data),
-    f: () => readPropertyArray(data, readFloat32),
-    d: () => readPropertyArray(data, readFloat64),
-    l: () => readPropertyArray(data, readInt64),
-    i: () => readPropertyArray(data, readInt32),
-    b: () => readPropertyArray(data, readBoolByte),
-    S: () => readString(data, readUInt32(data)).replace('\x00\x01', '::'),
-    R: () => readByteArray(data, readUInt32(data)),
+    Y: () => data.readInt16(),
+    C: () => data.readUint8AsBool(),
+    I: () => data.readInt32(),
+    F: () => data.readFloat32(),
+    D: () => data.readFloat64(),
+    L: () => data.readInt64(),
+    f: () => readPropertyArray(data, (r) => r.readFloat32()),
+    d: () => readPropertyArray(data, (r) => r.readFloat64()),
+    l: () => readPropertyArray(data, (r) => r.readInt64()),
+    i: () => readPropertyArray(data, (r) => r.readInt32()),
+    b: () => readPropertyArray(data, (r) => r.readUint8AsBool()),
+    S: () => data.readArrayAsString(data.readUint32()).replace('\x00\x01', '::'),
+    R: () => data.readUint8Array(data.readUint32()),
   }
 
-  if (typeof read[typeCode] === 'undefined') throw new Error('Unknown Property Type')
+  if (typeof read[typeCode] === 'undefined') throw new Error(`Unknown Property Type ${typeCode.charCodeAt(0)}`)
 
   return read[typeCode]()
 }
 
-interface Data {
-  binary: Uint8Array
-  position: number
-}
-
-function readUInt32(data: Data) {
-  const v = new DataView(data.binary.buffer, data.binary.byteOffset + data.position, 4).getUint32(0, true)
-  data.position += 4
-  return v
-}
-
-function readInt16(data: Data) {
-  const v = new DataView(data.binary.buffer, data.binary.byteOffset + data.position, 4).getInt16(0, true)
-  data.position += 4
-  return v
-}
-
-function readInt32(data: Data) {
-  const v = new DataView(data.binary.buffer, data.binary.byteOffset + data.position, 4).getInt32(0, true)
-  data.position += 4
-  return v
-}
-
-function readInt64(data: Data) {
-  const v = new DataView(data.binary.buffer, data.binary.byteOffset + data.position, 8).getBigInt64(0, true)
-  data.position += 8
-  return v
-}
-
-function readFloat32(data: Data) {
-  const v = new DataView(data.binary.buffer, data.binary.byteOffset + data.position, 4).getFloat32(0, true)
-  data.position += 4
-  return v
-}
-function readFloat64(data: Data) {
-  const v = new DataView(data.binary.buffer, data.binary.byteOffset + data.position, 8).getFloat64(0, true)
-  data.position += 8
-  return v
-}
-
-function readUByte(data: Data) {
-  return data.binary[data.position++].valueOf()
-}
-
-function readString(data: Data, length: number) {
-  return String.fromCharCode.apply(null, data.binary.subarray(data.position, (data.position += length)) as any)
-}
-
-function readByteArray(data: Data, length: number) {
-  return data.binary.subarray(data.position, (data.position += length))
-}
-
-function readChar(data: Data) {
-  return String.fromCharCode(data.binary[data.position++].valueOf())
-}
-
-function readBoolByte(data: Data) {
-  return data.binary[data.position++].valueOf() !== 0
-}
-
-function readPropertyArray(data: Data, decoder: (data: Data) => any) {
-  const arrayLength = readUInt32(data)
-  const encoding = readUInt32(data)
-  const compressedLength = readUInt32(data)
-  const arrayData: Data = { binary: readByteArray(data, compressedLength), position: 0 }
+function readPropertyArray(data: BinaryReader, reader: (r: BinaryReader) => FBXProperty) {
+  const arrayLength = data.readUint32()
+  const encoding = data.readUint32()
+  const compressedLength = data.readUint32()
+  let arrayData = new BinaryReader(data.readUint8Array(compressedLength))
 
   if (encoding == 1) {
-    arrayData.binary = inflate(arrayData.binary)
+    arrayData = new BinaryReader(inflate(arrayData.binary))
   }
 
   const value = []
   for (let i = 0; i < arrayLength; ++i) {
-    value.push(decoder(arrayData))
+    value.push(reader(arrayData))
   }
 
   return value
@@ -172,8 +106,8 @@ import * as path from 'path'
 import * as fs from 'fs'
 
 async function init() {
+  // const sourceFileName = 'tests/data/binary.fbx'
   const sourceFileName = 'tests/data/binary.fbx'
-  // const sourceFileName = 'tests/data/FBX 2006/cube.fbx'
   let json = parse(await fs.readFileSync(sourceFileName))
 
   const outFileName = path.join(
@@ -182,7 +116,17 @@ async function init() {
   )
   fs.writeFileSync(
     outFileName,
-    JSON.stringify(json, (k, v) => (typeof v === 'bigint' ? v.toString() : v), 2)
+    JSON.stringify(
+      json,
+      (k, v) => {
+        if (typeof v === 'bigint') {
+          if (v < Number.MIN_SAFE_INTEGER || v > Number.MAX_SAFE_INTEGER) return v.toString()
+          return Number(v)
+        }
+        return v
+      },
+      2
+    )
   )
 }
 

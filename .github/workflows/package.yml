@@ -41,7 +41,7 @@ jobs:
           registry-url: https://npm.pkg.github.com/
           scope: '@picode7'
       - run: npm ci
-      - run: echo registry=https://npm.pkg.github.com/picode7 >> .npmrc
+      - run: echo @@picode7:registry=https://npm.pkg.github.com/ >> .npmrc
       - run: npm publish
         env:
           NODE_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}

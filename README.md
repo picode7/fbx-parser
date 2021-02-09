@@ -53,6 +53,20 @@ for (const connection of connectionsOnRoot) {
 
 Consider checking out and contributing to the [FBX](https://github.com/picode7/fbx) project (`npm install @picode/fbx`) which provides an advanced interface to use the FBX data.
 
+```ts
+import { FBX, FBXAxes } from '@picode/fbx'
+import * as FBXParser from 'fbx-parser'
+
+const fbx = new FBX(FBXParser.parse(await fs.readFileSync(fbxFile)))
+const upAxes = fbx.globalSettings.getUpAxes() ?? FBXAxes.Y
+
+const model = fbx.getModel('MyModel')
+
+const rotKeyY = model.getRotationKey(upAxes)
+const rotationsYTimes = rotKeyY?.getTime()
+const rotationsYValues = rotKeyY?.getValue()
+```
+
 Direct Access
 
 ```ts

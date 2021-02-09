@@ -1,6 +1,6 @@
-import { FBX, FBXNode, FBXProperty } from './shared'
+import { FBXData, FBXNode, FBXProperty } from './shared'
 
-class FBXReaderNode {
+export class FBXReaderNode {
   public fbxNode: FBXNode
 
   constructor(fbxNode: FBXNode) {
@@ -95,9 +95,9 @@ class FBXReaderNode {
 }
 
 export class FBXReader extends FBXReaderNode {
-  public fbx: FBX
+  public fbx: FBXData
 
-  constructor(fbx: FBX) {
+  constructor(fbx: FBXData) {
     const rootNode: FBXNode = {
       name: '',
       props: [],

@@ -1,4 +1,4 @@
-import { FBX, FBXNode, FBXProperty } from './shared'
+import { FBXData, FBXNode, FBXProperty } from './shared'
 
 const enum STATE {
   expectingNodeOrClose,
@@ -9,7 +9,7 @@ const enum STATE {
  * Returns a list of FBXNodes
  * @param ascii the FBX ascii file content
  */
-export function parseText(ascii: string): FBX {
+export function parseText(ascii: string): FBXData {
   const lines = ascii.split('\n')
 
   const rootNode: FBXNode = {

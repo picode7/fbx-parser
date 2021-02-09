@@ -1,4 +1,4 @@
-export type FBX = FBXNode[]
+export type FBXData = FBXNode[]
 
 export interface FBXNode {
   name: string

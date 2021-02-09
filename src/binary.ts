@@ -1,4 +1,4 @@
-import { FBXNode, FBXProperty, FBX } from './shared'
+import { FBXNode, FBXProperty, FBXData } from './shared'
 import { BinaryReader } from '@picode/binary-reader'
 import { inflate } from 'pako'
 
@@ -8,14 +8,14 @@ const MAGIC = Uint8Array.from('Kaydara FBX Binary\x20\x20\x00\x1a\x00'.split('')
  * Returns a list of FBXNodes
  * @param binary the FBX binary file content
  */
-export function parseBinary(binary: Uint8Array): FBX {
+export function parseBinary(binary: Uint8Array): FBXData {
   if (binary.length < MAGIC.length) throw 'Not a binary FBX file'
   const data = new BinaryReader(binary)
   const magic = data.readUint8Array(MAGIC.length).every((v, i) => v === MAGIC[i])
   if (!magic) throw 'Not a binary FBX file'
   const fbxVersion = data.readUint32()
 
-  const fbx: FBX = []
+  const fbx: FBXData = []
 
   while (true) {
     const subnode = readNode(data)

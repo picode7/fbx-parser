@@ -24,7 +24,7 @@ const fbx = parseBinary(fbxUint8Array)
 // when file encoding is unknown
 import * as fs from 'fs'
 const file = 'file.fbx'
-let fbx: FBX
+let fbx: FBXData
 try {
   // try binary file encoding
   fbx = parse(await fs.readFileSync(file))
@@ -40,7 +40,7 @@ const root = new FBXReader(fbx)
 Calling the parser will return the same raw structure of the FBX file:
 
 ```ts
-type FBX = FBXNode[]
+type FBXData = FBXNode[]
 
 interface FBXNode {
   name: string

@@ -32,6 +32,9 @@ try {
   // try text file encoding
   fbx = parse(await fs.readFileSync(file, 'utf-8'))
 }
+
+const root = new FBXReader(fbx)
+// ...
 ```
 
 Calling the parser will return the same raw structure of the FBX file:
@@ -48,16 +51,32 @@ interface FBXNode {
 type FBXProperty = boolean | number | BigInt | boolean[] | number[] | BigInt[] | string
 ```
 
+Using FBXReader Util
+
+```ts
+const root = new FBXReader(fbx)
+
+// Get Settings
+const upAxis = root.node('GlobalSettings')?.node('Properties70')?.node('P', { 0: 'UpAxis' })?.prop(4, 'number')
+
+const connectionsOnRoot = root.('Connections').nodes({ 2: 0 }) || []
+for (const connection of connectionsOnRoot) {
+  const objectId = connection.prop(1)
+}
+```
+
+Direct Access
+
 ```ts
 // Get Settings
-const globalSettings = fbx.subnodes.find((v) => v.name === 'GlobalSettings')
-const properties70 = globalSettings.subnodes.find((v) => v.name === 'Properties70')
-const upAxis = properties70.subnodes.find((v) => v.name === 'P' && v.properties[0] === '"UpAxis"').properties[4]
+const globalSettings = fbx.nodes.find((v) => v.name === 'GlobalSettings')
+const properties70 = globalSettings.nodes.find((v) => v.name === 'Properties70')
+const upAxis = properties70.nodes.find((v) => v.name === 'P' && v.props[0] === '"UpAxis"').properties[4]
 
-const connections = fbx.subnodes.find((v) => v.name === 'Connections')
-const connectionsOnRoot = connections.subnodes.filter((v) => v.properties[2] === '0')
+const connections = fbx.nodes.find((v) => v.name === 'Connections')
+const connectionsOnRoot = connections.nodes.filter((v) => v.props[2] === '0')
 for (const connection of connectionsOnRoot) {
-  const objectId = connection.properties[1]
+  const objectId = connection.props[1]
 }
 ```
 

@@ -37,20 +37,6 @@ const root = new FBXReader(fbx)
 // ...
 ```
 
-Calling the parser will return the same raw structure of the FBX file:
-
-```ts
-type FBXData = FBXNode[]
-
-interface FBXNode {
-  name: string
-  props: FBXProperty[]
-  nodes: FBXNode[]
-}
-
-type FBXProperty = boolean | number | BigInt | boolean[] | number[] | BigInt[] | string
-```
-
 Using FBXReader Util
 
 ```ts
@@ -63,6 +49,22 @@ const connectionsOnRoot = root.('Connections').nodes({ 2: 0 }) || []
 for (const connection of connectionsOnRoot) {
   const objectId = connection.prop(1)
 }
+```
+
+Consider checking out and contributing to the [FBX](https://github.com/picode7/fbx) project (`npm install @picode/fbx`) which provides an advanced interface to use the FBX data.
+
+```ts
+import { FBX, FBXAxes } from '@picode/fbx'
+import * as FBXParser from 'fbx-parser'
+
+const fbx = new FBX(FBXParser.parse(await fs.readFileSync(fbxFile)))
+const upAxes = fbx.globalSettings.getUpAxes() ?? FBXAxes.Y
+
+const model = fbx.getModel('MyModel')
+
+const rotKeyY = model.getRotationKey(upAxes)
+const rotationsYTimes = rotKeyY?.getTime()
+const rotationsYValues = rotKeyY?.getValue()
 ```
 
 Direct Access
@@ -79,6 +81,7 @@ for (const connection of connectionsOnRoot) {
   const objectId = connection.props[1]
 }
 ```
+
 
 ## Contributing
 

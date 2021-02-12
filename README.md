@@ -27,13 +27,11 @@ const file = 'file.fbx'
 let fbx: FBXData
 try {
   // try binary file encoding
-  fbx = parse(await fs.readFileSync(file))
+  fbx = parseBinary(fs.readFileSync(file))
 } catch (e) {
   // try text file encoding
-  fbx = parse(await fs.readFileSync(file, 'utf-8'))
+  fbx = parseText(fs.readFileSync(file, 'utf-8'))
 }
-
-const root = new FBXReader(fbx)
 // ...
 ```
 
@@ -82,7 +80,6 @@ for (const connection of connectionsOnRoot) {
 }
 ```
 
-
 ## Contributing
 
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
@@ -102,6 +99,7 @@ Please make sure to update tests as appropriate.
 - <https://archive.blender.org/wiki/index.php/User:Mont29/Foundation/FBX_File_Structure/#Animation>
 - <https://code.blender.org/2013/08/fbx-binary-file-format-specification/>
 - <https://github.com/ideasman42/pyfbx_i42>
+- <https://help.autodesk.com/view/FBX/2016/ENU/?guid=__files_GUID_2ADB9BCE_15EA_485F_87C2_32D43F2D219D_htm>
 
 ### Resources
 

@@ -4,6 +4,10 @@ import { inflate } from 'pako'
 
 const MAGIC = Uint8Array.from('Kaydara FBX Binary\x20\x20\x00\x1a\x00'.split(''), (v) => v.charCodeAt(0))
 
+// For debug purposes:
+// const IND = '  '
+// let ind = ''
+
 /**
  * Returns a list of FBXNodes
  * @param binary the FBX binary file content
@@ -15,10 +19,13 @@ export function parseBinary(binary: Uint8Array): FBXData {
   if (!magic) throw 'Not a binary FBX file'
   const fbxVersion = data.readUint32()
 
+  // console.log(`FBX Version: ${fbxVersion}`)
+  const header64 = fbxVersion >= 7500
+
   const fbx: FBXData = []
 
   while (true) {
-    const subnode = readNode(data)
+    const subnode = readNode(data, header64)
     if (subnode === null) break
     fbx.push(subnode)
   }
@@ -26,11 +33,11 @@ export function parseBinary(binary: Uint8Array): FBXData {
   return fbx
 }
 
-function readNode(data: BinaryReader) {
-  const endOffset = data.readUint32()
+function readNode(data: BinaryReader, header64: boolean) {
+  const endOffset = header64 ? Number(data.readUint64()) : data.readUint32()
   if (endOffset === 0) return null
-  const numProperties = data.readUint32()
-  const propertyListLen = data.readUint32()
+  const numProperties = header64 ? Number(data.readUint64()) : data.readUint32()
+  const propertyListLen = header64 ? Number(data.readUint64()) : data.readUint32()
   const nameLen = data.readUint8()
   const name = data.readArrayAsString(nameLen)
 
@@ -40,6 +47,9 @@ function readNode(data: BinaryReader) {
     nodes: [],
   }
 
+  // console.log(`${ind}Node offset ${data.offset}:`, endOffset, numProperties, propertyListLen, nameLen, `"${name}"`)
+  // ind += IND
+
   // Properties
   for (let i = 0; i < numProperties; ++i) {
     node.props.push(readProperty(data))
@@ -47,10 +57,12 @@ function readNode(data: BinaryReader) {
 
   // Node List
   while (endOffset - data.offset > 13) {
-    const subnode = readNode(data)
+    const subnode = readNode(data, header64)
     if (subnode !== null) node.nodes.push(subnode)
   }
   data.offset = endOffset
+
+  // ind = ind.substr(0, ind.length - IND.length)
 
   return node
 }

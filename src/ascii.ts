@@ -128,7 +128,7 @@ function convertProperty(prop: string): FBXProperty | undefined {
   if (prop == 'F') return false
   if (prop == 'Y') return true
   if (prop == 'N') return false
-  if (prop.indexOf('.') != -1) return parseFloat(prop)
+  if (prop.indexOf('.') != -1 || prop.match(/^-?\d+e-\d+$/)) return parseFloat(prop)
   const n = BigInt(prop)
   if (n < Number.MIN_SAFE_INTEGER || n > Number.MAX_SAFE_INTEGER) return n
   return Number(n)

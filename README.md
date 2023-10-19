@@ -14,30 +14,38 @@ npm install fbx-parser
 
 ## Usage
 
+#### When encoding is known
 ```ts
-import * as FBXParser from 'fbx-parser'
-
-// when encoding is known
+import { parseText } from 'fbx-parser'
 const fbx = parseText(fbxString)
-const fbx = parseBinary(fbxUint8Array)
 
-// when file encoding is unknown
-import * as fs from 'fs'
+// or
+
+import { parseBinary } from 'fbx-parser'
+const fbx = parseBinary(fbxUint8Array)
+```
+
+#### When encoding is unknown
+```ts
+import { parseBinary, parseText } from 'fbx-parser'
+import { readFileSync } from 'fs'
+
 const file = 'file.fbx'
 let fbx: FBXData
 try {
   // try binary file encoding
-  fbx = parseBinary(fs.readFileSync(file))
+  fbx = parseBinary(readFileSync(file))
 } catch (e) {
   // try text file encoding
-  fbx = parseText(fs.readFileSync(file, 'utf-8'))
+  fbx = parseText(readFileSync(file, 'utf-8'))
 }
-// ...
 ```
 
-Using FBXReader Util
+### Using FBXReader Util
 
 ```ts
+import { FBXReader } from 'fbx-parser'
+
 const root = new FBXReader(fbx)
 
 // Get Settings
